@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Drashti Solanki | Software Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0c0c0b;--bg2:#131312;--bg3:#1a1a18;--bg4:#222220;--surface:#252523;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.12);
+  --text:#e8e6e0;--text2:#a0a09a;--text3:#5a5a56;
+  --accent:#e8904a;--accent2:#b86930;
+  --teal:#3db88a;--teal2:#1d7a5c;--blue:#5b9bd5;--blue2:#2d6aa8;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Geist',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;height:56px;
+  display:flex;align-items:center;justify-content:space-between;padding:0 2.5rem;
+  border-bottom:1px solid var(--border);background:rgba(12,12,11,0.88);backdrop-filter:blur(16px);
+}
+.nav-logo{font-family:'Instrument Serif',serif;font-size:1.4rem;color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:2rem}
+.nav-links{display:flex;gap:1.75rem;list-style:none}
+.nav-links a{text-decoration:none;color:var(--text2);font-size:0.82rem;letter-spacing:0.03em;transition:color 0.2s}
+.nav-links a:hover{color:var(--text)}
+.nav-badge{font-size:0.72rem;padding:4px 12px;border-radius:100px;border:1px solid rgba(61,184,138,0.3);color:var(--teal);display:flex;align-items:center;gap:5px}
+.nav-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 2.5rem 5rem;max-width:1100px;margin:0 auto}
+.hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:2rem;opacity:0;animation:up 0.7s 0.1s ease forwards}
+.eyebrow-line{display:none}
+.eyebrow-text{font-size:1.1rem;letter-spacing:0.02em;text-transform:none;color:var(--text2);font-weight:400}
+.hero-h1{font-family:'Instrument Serif',serif;font-size:clamp(3rem,7vw,5.5rem);line-height:1.04;letter-spacing:-0.02em;color:var(--text);margin-bottom:1.75rem;opacity:0;animation:up 0.7s 0.2s ease forwards}
+.hero-h1 em{font-style:italic;color:var(--text2)}
+.hero-sub{font-size:1rem;color:var(--text2);max-width:520px;line-height:1.75;margin-bottom:3rem;opacity:0;animation:up 0.7s 0.3s ease forwards}
+.hero-row{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem;opacity:0;animation:up 0.7s 0.4s ease forwards}
+.cta-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.875rem;font-weight:500;text-decoration:none;transition:background 0.2s}
+.cta-primary:hover{background:var(--accent2)}
+.cta-secondary{display:inline-flex;align-items:center;gap:8px;color:var(--text2);font-size:0.875rem;text-decoration:none;border:1px solid var(--border2);padding:12px 24px;border-radius:8px;transition:all 0.2s}
+.cta-secondary:hover{color:var(--text);border-color:rgba(255,255,255,0.25)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:5rem;opacity:0;animation:up 0.7s 0.5s ease forwards}
+.hs{padding:1.5rem 2rem;border-right:1px solid var(--border)}
+.hs:last-child{border-right:none}
+.hs-num{font-family:'Instrument Serif',serif;font-size:2.2rem;color:var(--text);line-height:1;margin-bottom:0.4rem}
+.hs-label{font-size:0.78rem;color:var(--text3);letter-spacing:0.04em}
+
+@keyframes up{to{opacity:1;transform:translateY(0)}from{opacity:0;transform:translateY(16px)}}
+
+#work{padding:7rem 2.5rem;max-width:1100px;margin:0 auto}
+.sec-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
+.sel{width:24px;height:1px;background:var(--text3)}
+.set{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3)}
+.sec-h2{font-family:'Instrument Serif',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);line-height:1.15;color:var(--text);margin-bottom:4rem;max-width:500px}
+
+.proj{display:grid;grid-template-columns:1fr 1.8fr;border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:2.5rem;background:var(--bg2);transition:border-color 0.3s}
+.proj:hover{border-color:var(--border2)}
+.proj.flip{direction:rtl}
+.proj.flip>*{direction:ltr}
+.proj-info{padding:2.5rem 2rem;border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:center}
+.proj.flip .proj-info{border-right:none;border-left:1px solid var(--border)}
+.pi-num{font-size:0.72rem;color:var(--text3);letter-spacing:0.1em;margin-bottom:1rem}
+.pi-client{font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem}
+.pi-title{font-family:'Instrument Serif',serif;font-size:1.45rem;line-height:1.2;color:var(--text);margin-bottom:0.9rem}
+.pi-desc{font-size:0.85rem;color:var(--text2);line-height:1.7;margin-bottom:1.25rem}
+.pi-feats{list-style:none;margin-bottom:1.5rem}
+.pi-feats li{font-size:0.8rem;color:var(--text2);padding:4px 0 4px 14px;position:relative;border-bottom:1px solid var(--border)}
+.pi-feats li:last-child{border-bottom:none}
+.pi-feats li::before{content:'→';position:absolute;left:0;color:var(--text3);font-size:0.75rem}
+.pi-chips{display:flex;flex-wrap:wrap;gap:5px}
+.pi-chip{font-size:0.7rem;padding:3px 9px;border-radius:4px;background:var(--bg4);border:1px solid var(--border);color:var(--text3);letter-spacing:0.02em}
+.proj-visual{background:var(--bg3);display:flex;align-items:stretch;min-height:420px;overflow:hidden}
+
+/* ── DFW MOCKUP ── */
+.dfw{width:100%;display:flex;flex-direction:column;font-size:11px}
+.dfw-top{height:38px;background:#111;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;padding:0 14px;flex-shrink:0}
+.dfw-logo{display:flex;align-items:center;gap:6px}
+.dfw-logo-box{background:#e8401a;padding:3px 7px;border-radius:3px;font-size:10px;font-weight:500;color:#fff;letter-spacing:0.04em}
+.dfw-logo-sub{font-size:9px;color:rgba(255,255,255,0.35);letter-spacing:0.06em;text-transform:uppercase}
+.dfw-filter{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:100px;padding:3px 10px;font-size:9px;color:rgba(255,255,255,0.5);display:flex;align-items:center;gap:4px}
+.dfw-filter span{color:rgba(255,255,255,0.8);font-weight:500}
+.dfw-toggle-row{display:flex;align-items:center;gap:6px;font-size:9px;color:rgba(255,255,255,0.5)}
+.dfw-tog{width:24px;height:13px;border-radius:100px;background:#e8401a;position:relative;flex-shrink:0}
+.dfw-tog::after{content:'';position:absolute;right:2px;top:2px;width:9px;height:9px;border-radius:50%;background:#fff}
+.dfw-tog.off{background:rgba(255,255,255,0.15)}
+.dfw-tog.off::after{right:auto;left:2px}
+.dfw-body{flex:1;display:flex;position:relative}
+.dfw-legend{width:158px;background:#0f0f0e;border-right:1px solid rgba(255,255,255,0.06);padding:14px 12px;flex-shrink:0}
+.dl-title{font-size:8px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.2);margin-bottom:10px;font-weight:500}
+.dl-item{display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.04);font-size:9.5px;color:rgba(255,255,255,0.5)}
+.dl-icon{width:20px;height:20px;border-radius:4px;background:rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:center;font-size:8px;flex-shrink:0}
+.dfw-map{flex:1;position:relative;overflow:hidden;background:#1a1f1a}
+.map-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px);background-size:30px 30px}
+.dfw-rwy{position:absolute;background:rgba(100,110,100,0.3);border:1px solid rgba(150,160,150,0.2)}
+.dfw-term{position:absolute;border-radius:8px}
+.dfw-zone{position:absolute;border-radius:4px;border:1.5px dashed}
+.dfw-right{width:48px;background:#0a0a09;border-left:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;align-items:center;padding:10px 0;gap:8px;font-size:8px;color:rgba(255,255,255,0.2);flex-shrink:0}
+.dr-n{padding:3px 0;border-bottom:1px solid rgba(255,255,255,0.05);width:100%;text-align:center}
+.dr-dot{width:8px;height:8px;border-radius:2px;margin:2px auto}
+.dfw-tl{flex-shrink:0;height:52px;background:#0d0d0c;border-top:1px solid rgba(255,255,255,0.06);padding:6px 14px;position:relative;overflow:hidden}
+.tl-years{display:flex;font-size:8px;color:rgba(255,255,255,0.2);letter-spacing:0.05em}
+.tl-year{flex:1;padding:0 2px;border-left:1px solid rgba(255,255,255,0.08)}
+.tl-months{display:flex;font-size:7px;color:rgba(255,255,255,0.15);margin-top:3px}
+.tl-month{flex:1;padding:0 1px}
+.tl-cursor{position:absolute;top:0;bottom:0;width:2px;background:rgba(232,144,74,0.7);border-radius:1px;left:11%}
+.tl-btn{position:absolute;bottom:6px;left:2.5rem;background:rgba(232,144,74,0.12);border:1px solid rgba(232,144,74,0.35);border-radius:4px;padding:2px 8px;font-size:8px;color:var(--accent);display:flex;align-items:center;gap:5px}
+
+/* ── ASSET MOCKUP ── */
+.asset{width:100%;display:flex;flex-direction:column;background:#fff;font-size:11px;color:#111}
+.ah{background:#1b6b5a;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.ah-t{color:#fff;font-size:12px;font-weight:500}
+.ah-s{color:rgba(255,255,255,0.55);font-size:9px;margin-top:1px}
+.ah-b{background:rgba(255,255,255,0.15);color:#fff;font-size:8px;padding:3px 9px;border-radius:100px}
+.atb{display:flex;align-items:center;gap:6px;padding:8px 14px;background:#f7f6f3;border-bottom:1px solid #e8e5df;flex-shrink:0}
+.atb-search{flex:1;border:1px solid #ddd;border-radius:5px;padding:4px 9px;font-size:10px;color:#aaa;background:#fff;display:flex;align-items:center;gap:5px}
+.atb-btn{font-size:9px;padding:4px 10px;border-radius:5px;border:1px solid #ddd;background:#fff;color:#777;cursor:pointer}
+.atb-btn.on{background:#dff0eb;color:#1b6b5a;border-color:#9dd6c3}
+.atbl{width:100%;border-collapse:collapse}
+.atbl th{background:#f0ede7;color:#999;font-size:8px;letter-spacing:0.07em;text-transform:uppercase;padding:7px 12px;text-align:left;border-bottom:1px solid #e8e5df;font-weight:500}
+.atbl td{padding:8px 12px;border-bottom:1px solid #f0ede7;color:#333;font-size:10px}
+.atbl tr:nth-child(1) td{background:#f6fdf9}
+.sp{display:inline-block;font-size:8px;padding:2px 7px;border-radius:100px;font-weight:500}
+.sp-ok{background:#dff0eb;color:#1b6b5a}
+.sp-mt{background:#faeeda;color:#854f0b}
+.sp-rv{background:#dde9f7;color:#185fa5}
+.sp-cx{background:#fcebeb;color:#a32d2d}
+.adp{display:flex;border-top:1px solid #e8e5df;flex:1}
+.adp-l{flex:1;padding:12px 14px}
+.adp-t{font-size:11px;font-weight:500;color:#1b6b5a;margin-bottom:8px}
+.adp-r{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid #f5f2ec}
+.adp-k{font-size:9px;color:#aaa}
+.adp-v{font-size:9px;color:#333;font-weight:500}
+.adp-c{width:155px;padding:12px 14px;background:#f7f6f3;border-left:1px solid #e8e5df}
+.adp-cl{font-size:8px;color:#bbb;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:6px}
+.mbars{display:flex;align-items:flex-end;gap:3px;height:44px}
+.mbar{flex:1;border-radius:2px 2px 0 0;background:#dff0eb}
+.mbar.hi{background:#1b6b5a}
+
+/* ── DOC REVIEW MOCKUP ── */
+.docrv{width:100%;display:flex;flex-direction:column;background:#fff;font-size:11px;color:#111}
+.drt{background:#1e4f8a;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.drt-title{color:#fff;font-size:12px;font-weight:500}
+.drt-sub{color:rgba(255,255,255,0.5);font-size:9px;margin-top:1px}
+.drt-user{background:rgba(255,255,255,0.12);color:#fff;font-size:8px;padding:3px 9px;border-radius:100px}
+.drs{display:flex;border-bottom:1px solid #e8e5df;background:#f7f6f3;flex-shrink:0}
+.drs-s{flex:1;padding:7px 0;text-align:center;font-size:8px;letter-spacing:0.06em;text-transform:uppercase;font-weight:500;color:#bbb;border-right:1px solid #e8e5df;position:relative}
+.drs-s:last-child{border-right:none}
+.drs-s.done{color:#185fa5}
+.drs-s.done::after{content:'✓';position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:8px;color:#185fa5}
+.drs-s.active{background:#1e4f8a;color:#fff}
+.drb{display:flex;flex:1;overflow:hidden}
+.drl{width:170px;border-right:1px solid #e8e5df;overflow:hidden;flex-shrink:0}
+.drl-h{padding:7px 10px;font-size:8px;color:#aaa;letter-spacing:0.08em;text-transform:uppercase;background:#f7f6f3;border-bottom:1px solid #e8e5df;font-weight:500}
+.drl-i{padding:7px 10px;border-bottom:1px solid #f0ede7;cursor:pointer}
+.drl-i:hover{background:#f7f6f3}
+.drl-i.on{background:#dde9f7;border-left:2px solid #1e4f8a}
+.drl-id{font-size:9.5px;font-weight:500;color:#333}
+.drl-m{font-size:8px;color:#bbb;margin-top:1px}
+.drm{flex:1;padding:14px;overflow:hidden}
+.drm-h{font-size:10px;font-weight:500;color:#1e4f8a;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.drc{border-left:2px solid #ddd;border-radius:0 5px 5px 0;padding:7px 9px;margin-bottom:5px;background:#f7f6f3}
+.drc.open{border-left-color:#c8691a;background:#fdf4ec}
+.drc.res{border-left-color:#1b6b5a;background:#f3fbf8}
+.drc-h{display:flex;justify-content:space-between;margin-bottom:3px}
+.drc-a{font-size:8px;font-weight:500;color:#555}
+.drc-d{font-size:8px;color:#ccc}
+.drc-b{font-size:9.5px;color:#444;line-height:1.5}
+.drc-t{font-size:7px;padding:2px 6px;border-radius:100px;margin-top:4px;display:inline-block;font-weight:500}
+.drc-t.open{background:#faeeda;color:#854f0b}
+.drc-t.res{background:#dff0eb;color:#1b6b5a}
+.dra{display:flex;gap:5px;margin-top:10px}
+.dra-btn{padding:6px 12px;border-radius:5px;font-size:9px;font-weight:500;cursor:pointer;border:none}
+.dra-ap{background:#1e4f8a;color:#fff}
+.dra-rj{background:#fcebeb;color:#a32d2d}
+.dra-nt{background:#f3f1ec;color:#555;border:1px solid #ddd}
+.drsd{width:142px;border-left:1px solid #e8e5df;padding:12px;background:#f7f6f3;flex-shrink:0}
+.drsd-l{font-size:7.5px;color:#bbb;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px;font-weight:500}
+.drsd-r{display:flex;justify-content:space-between;margin-bottom:3px}
+.drsd-k{font-size:9px;color:#999}
+.drsd-v{font-size:9px;font-weight:500;color:#333}
+.drsd-bl{font-size:8px;color:#aaa;margin-bottom:2px}
+.drsd-bt{height:4px;background:#e8e5df;border-radius:2px;margin-bottom:5px;overflow:hidden}
+.drsd-bf{height:100%;border-radius:2px}
+
+/* ABOUT */
+#about{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:7rem 2.5rem}
+.about-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
+.about-h2{font-family:'Instrument Serif',serif;font-size:clamp(1.6rem,2.8vw,2.2rem);line-height:1.2;color:var(--text);margin-bottom:1.25rem;margin-top:1.5rem}
+.about-p{font-size:0.875rem;color:var(--text2);line-height:1.8;margin-bottom:2rem}
+.about-ms{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+.am{padding-top:1rem;border-top:1px solid var(--border)}
+.am-n{font-family:'Instrument Serif',serif;font-size:1.9rem;color:var(--text);line-height:1;margin-bottom:0.3rem}
+.am-l{font-size:0.72rem;color:var(--text3);letter-spacing:0.04em}
+.sg{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.sc{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:1.25rem}
+.sc-t{font-size:0.78rem;font-weight:500;color:var(--text);margin-bottom:0.75rem;letter-spacing:0.02em}
+.si{font-size:0.78rem;color:var(--text3);padding:3px 0;border-bottom:1px solid var(--border)}
+.si:last-child{border-bottom:none}
+
+#contact{padding:7rem 2.5rem;max-width:700px;margin:0 auto;text-align:center}
+.con-h2{font-family:'Instrument Serif',serif;font-size:clamp(2rem,4vw,3rem);line-height:1.1;color:var(--text);margin-bottom:1rem}
+.con-sub{font-size:0.9rem;color:var(--text2);line-height:1.75;margin-bottom:2.5rem}
+.con-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+.con-p{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:13px 26px;border-radius:8px;font-size:0.875rem;font-weight:500;text-decoration:none;transition:background 0.2s}
+.con-p:hover{background:var(--accent2)}
+.con-s{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--border2);color:var(--text2);padding:13px 26px;border-radius:8px;font-size:0.875rem;text-decoration:none;transition:all 0.2s}
+.con-s:hover{color:var(--text);border-color:rgba(255,255,255,0.25)}
+footer{border-top:1px solid var(--border);padding:1.75rem 2.5rem;display:flex;align-items:center;justify-content:space-between;font-size:0.78rem;color:var(--text3)}
+@media(max-width:860px){
+  nav{padding:0 1.25rem}.nav-badge{display:none}
+  .hero{padding:90px 1.25rem 4rem}.hero-h1{font-size:2.6rem}
+  .hero-stats{grid-template-columns:1fr}.hs{border-right:none!important;border-bottom:1px solid var(--border)}.hs:last-child{border-bottom:none}
+  #work{padding:4rem 1.25rem}
+  .proj{grid-template-columns:1fr}.proj.flip{direction:ltr}.proj-info{border-right:none!important;border-left:none!important;border-bottom:1px solid var(--border)}.proj-visual{min-height:260px}
+  #about{padding:4rem 1.25rem}.about-in{grid-template-columns:1fr;gap:3rem}
+  #contact{padding:4rem 1.25rem}
+  footer{flex-direction:column;gap:0.5rem;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-logo">Drashti Solanki</span>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <span class="nav-badge">Open to work</span>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-text">Software Developer</span></div>
+  <h1 class="hero-h1">Building enterprise<br>platforms that <em>actually<br>make sense</em> to use.</h1>
+  <p class="hero-sub">I've spent 7+ years designing and engineering full-stack applications for airports, transit agencies, and city governments. The problems are complex, the users are busy, and the UX has to hold up.</p>
+  <div class="hero-row">
+    <a href="#work" class="cta-primary">View selected work →</a>
+    <a href="mailto:drashtisolanki.jobs@gmail.com" class="cta-secondary">Get in touch</a>
+  </div>
+  <div class="hero-stats">
+    <div class="hs"><div class="hs-num">7+</div><div class="hs-label">Years at AECOM</div></div>
+    <div class="hs"><div class="hs-num">10+</div><div class="hs-label">Enterprise platforms shipped</div></div>
+    <div class="hs"><div class="hs-num">3</div><div class="hs-label">Countries deployed — US, UK, AU</div></div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="sec-eyebrow"><span class="sel"></span><span class="set">Selected Work</span></div>
+  <h2 class="sec-h2">Work I&#39;ve shipped across infrastructure and government.</h2>
+
+  <!-- PROJECT 1: DFW -->
+  <div class="proj">
+    <div class="proj-info">
+      <p class="pi-num">01 / 03</p>
+      <p class="pi-client">Dallas Fort Worth International Airport</p>
+      <h3 class="pi-title">DFW Dynamic Model — 4D Construction Viewer</h3>
+      <p class="pi-desc">I built the DFW Dynamic Model to give construction and operations teams a single place to see what's happening across the entire airport campus in 4D. It connects live BIM models to a schedule timeline so you can scrub from 2026 to 2031 and watch the airport transform.</p>
+      <ul class="pi-feats">
+        <li>Interactive timeline scrubber spanning 2026 to 2031, covering all terminals and airfield zones</li>
+        <li>Color-coded project overlays showing active closures for runways, taxiways and gates in real time</li>
+        <li>Layered legend with toggles for Airfield, FAA Requirements, Airlines, Delays and Facilities</li>
+        <li>Multi-model BIM loading through Autodesk APS and ACC using SVF2 format and two-legged OAuth2</li>
+        <li>Node.js backend handling S3 uploads with signed URLs and translation status polling per model</li>
+      </ul>
+      <div class="pi-chips">
+        <span class="pi-chip">React</span><span class="pi-chip">TypeScript</span>
+        <span class="pi-chip">Autodesk APS</span><span class="pi-chip">ACC</span>
+        <span class="pi-chip">MapLibre GL JS</span><span class="pi-chip">NodeJS</span>
+        <span class="pi-chip">AWS S3</span><span class="pi-chip">OAuth2</span>
+      </div>
+    </div>
+    <div class="proj-visual">
+      <div class="dfw">
+        <div class="dfw-top">
+          <div class="dfw-logo"><div class="dfw-logo-box">DFW</div><span class="dfw-logo-sub">Dynamic Model</span></div>
+          <div style="display:flex;gap:8px">
+            <div class="dfw-filter">Terminal: <span>All</span></div>
+            <div class="dfw-filter">Level: <span>—</span></div>
+          </div>
+          <div style="display:flex;gap:12px">
+            <div class="dfw-toggle-row"><div class="dfw-tog"></div><span>Projects</span></div>
+            <div class="dfw-toggle-row"><div class="dfw-tog off"></div><span>Impacts</span></div>
+          </div>
+        </div>
+        <div class="dfw-body">
+          <div class="dfw-legend">
+            <div class="dl-title">Legend</div>
+            <div class="dl-item"><div class="dl-icon">✈</div>Airfield</div>
+            <div class="dl-item"><div class="dl-icon" style="font-size:7px">FAA</div>FAA Requirements</div>
+            <div class="dl-item"><div class="dl-icon">⊗</div>Runway Closures</div>
+            <div class="dl-item"><div class="dl-icon">⊗</div>Taxiway Closures</div>
+            <div class="dl-item"><div class="dl-icon">✈</div>Airlines</div>
+            <div class="dl-item"><div class="dl-icon">⏱</div>Airline Delays</div>
+            <div class="dl-item"><div class="dl-icon">⊞</div>Gate Closures</div>
+            <div class="dl-item"><div class="dl-icon" style="font-size:7px">FAC</div>Facilities</div>
+          </div>
+          <div class="dfw-map">
+            <div class="map-grid"></div>
+            <!-- runways -->
+            <div class="dfw-rwy" style="left:0;right:0;top:22%;height:10px;opacity:0.5"></div>
+            <div class="dfw-rwy" style="left:0;right:0;top:70%;height:10px;opacity:0.5"></div>
+            <div class="dfw-rwy" style="top:0;bottom:0;left:14%;width:7px;opacity:0.4"></div>
+            <div class="dfw-rwy" style="top:0;bottom:0;right:14%;width:7px;opacity:0.4"></div>
+            <!-- spine road -->
+            <div style="position:absolute;left:40%;right:40%;top:5%;bottom:5%;background:rgba(200,200,180,0.1);border:1px solid rgba(200,200,180,0.12);border-radius:4px"></div>
+            <!-- terminals -->
+            <div class="dfw-term" style="left:31%;top:10%;width:38%;height:22%;background:rgba(180,190,200,0.1);border:1px solid rgba(180,190,200,0.18)"></div>
+            <div class="dfw-term" style="left:31%;top:36%;width:38%;height:22%;background:rgba(180,190,200,0.1);border:1px solid rgba(180,190,200,0.18)"></div>
+            <div class="dfw-term" style="left:31%;top:62%;width:38%;height:22%;background:rgba(180,190,200,0.07);border:1px solid rgba(180,190,200,0.12)"></div>
+            <!-- project zones -->
+            <div class="dfw-zone" style="left:33%;top:12%;width:15%;height:10%;background:rgba(232,144,74,0.07);border-color:rgba(232,144,74,0.4)"></div>
+            <div class="dfw-zone" style="left:52%;top:38%;width:13%;height:9%;background:rgba(232,144,74,0.07);border-color:rgba(232,144,74,0.4)"></div>
+            <div class="dfw-zone" style="left:35%;top:65%;width:15%;height:10%;background:rgba(232,144,74,0.05);border-color:rgba(232,144,74,0.3)"></div>
+            <!-- flags -->
+            <div style="position:absolute;left:35%;top:15%;color:#3db88a;font-size:9px">▶</div>
+            <div style="position:absolute;left:42%;top:20%;color:#3db88a;font-size:9px">▶</div>
+            <div style="position:absolute;left:48%;top:14%;color:#3db88a;font-size:9px">▶</div>
+            <div style="position:absolute;left:55%;top:41%;color:#3db88a;font-size:9px">▶</div>
+            <div style="position:absolute;left:38%;top:67%;color:#3db88a;font-size:9px">▶</div>
+            <div style="position:absolute;left:45%;top:13%;color:#e05050;font-size:9px">▶</div>
+            <div style="position:absolute;left:52%;top:17%;color:#e05050;font-size:9px">▶</div>
+            <div style="position:absolute;left:50%;top:39%;color:#e05050;font-size:9px">▶</div>
+            <div style="position:absolute;left:44%;top:70%;color:#e05050;font-size:9px">▶</div>
+            <div style="position:absolute;left:40%;top:24%;color:#e8904a;font-size:9px">▶</div>
+            <div style="position:absolute;left:57%;top:47%;color:#e8904a;font-size:9px">▶</div>
+            <!-- construction path line -->
+            <div style="position:absolute;left:46%;top:8%;bottom:8%;width:3px;background:linear-gradient(to bottom,#8040e0,#e040e0,#8040e0);opacity:0.65;border-radius:2px"></div>
+          </div>
+          <div class="dfw-right">
+            <div class="dr-n">27</div><div class="dr-n">31</div>
+            <div class="dr-dot" style="background:#e05050"></div>
+            <div class="dr-n">13</div><div class="dr-n">16</div>
+            <div class="dr-dot" style="background:#e05050"></div>
+            <div class="dr-n" style="color:#3db88a">0</div>
+            <div class="dr-n" style="color:#e8904a">0</div>
+            <div class="dr-dot" style="background:#3db88a"></div>
+            <div class="dr-n" style="color:#e05050">0</div>
+          </div>
+        </div>
+        <div class="dfw-tl">
+          <div class="tl-years">
+            <div class="tl-year" style="color:rgba(232,144,74,0.8);flex:2">2026</div>
+            <div class="tl-year" style="flex:2">2027</div>
+            <div class="tl-year" style="flex:2">2028</div>
+            <div class="tl-year" style="flex:2">2029</div>
+            <div class="tl-year">2030</div>
+            <div class="tl-year" style="flex:0.5">2031</div>
+          </div>
+          <div class="tl-months">
+            <div class="tl-month" style="color:rgba(232,144,74,0.7)">Apr</div>
+            <div class="tl-month">May</div><div class="tl-month">Jun</div><div class="tl-month">Jul</div>
+            <div class="tl-month">Aug</div><div class="tl-month">Sep</div><div class="tl-month">Oct</div>
+            <div class="tl-month">Nov</div><div class="tl-month">Dec</div><div class="tl-month">Jan</div>
+            <div class="tl-month">Feb</div><div class="tl-month">Mar</div><div class="tl-month">Apr</div>
+          </div>
+          <div class="tl-cursor"></div>
+          <div class="tl-btn"><span>◀</span> Apr 2026 <span>▶</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 2: NYCDOT -->
+  <div class="proj flip">
+    <div class="proj-info">
+      <p class="pi-num">02 / 03</p>
+      <p class="pi-client">NYC Department of Transportation</p>
+      <h3 class="pi-title">Infrastructure Asset Management & Inspection Platform</h3>
+      <p class="pi-desc">Built for NYCDOT to manage thousands of city infrastructure assets across all five boroughs. Inspectors log field data on their phones, managers see dashboards, and the system generates printable PDF reports from live records.</p>
+      <ul class="pi-feats">
+        <li>Separate role-based views for field inspectors, managers and executives</li>
+        <li>Search and filter across asset type, condition rating and borough with instant results</li>
+        <li>Condition trend charts showing inspection history over time for each individual asset</li>
+        <li>One-click printable PDF reports generated from live database records</li>
+      </ul>
+      <div class="pi-chips">
+        <span class="pi-chip">Angular</span><span class="pi-chip">TypeScript</span>
+        <span class="pi-chip">D3.js</span><span class="pi-chip">NodeJS</span>
+        <span class="pi-chip">SQL Server</span><span class="pi-chip">Azure</span>
+        <span class="pi-chip">JWT / OAuth2</span>
+      </div>
+    </div>
+    <div class="proj-visual">
+      <div class="asset">
+        <div class="ah">
+          <div><div class="ah-t">Infrastructure Asset Registry</div><div class="ah-s">NYC Dept. of Transportation — Bridges & Structures Division</div></div>
+          <span class="ah-b">1,284 Assets</span>
+        </div>
+        <div class="atb">
+          <div class="atb-search"><span style="color:#ccc">⌕</span><span>Search assets, ID, location...</span></div>
+          <button class="atb-btn on">All</button>
+          <button class="atb-btn">Bridges</button>
+          <button class="atb-btn">Tunnels</button>
+          <button class="atb-btn">Walls</button>
+        </div>
+        <table class="atbl">
+          <thead><tr><th>Asset ID</th><th>Name</th><th>Type</th><th>Borough</th><th>Rating</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr>
+              <td style="color:#1b6b5a;font-weight:500">BRG-0041</td>
+              <td style="font-weight:500">Manhattan Bridge</td>
+              <td>Suspension Bridge</td><td>Manhattan / Brooklyn</td>
+              <td style="color:#1b6b5a;font-weight:500">Good (7.2)</td>
+              <td><span class="sp sp-ok">Active</span></td>
+            </tr>
+            <tr>
+              <td style="color:#1b6b5a;font-weight:500">BRG-0089</td>
+              <td style="font-weight:500">Kosciuszko Bridge</td>
+              <td>Cable-stayed</td><td>Queens / Brooklyn</td>
+              <td style="color:#854f0b;font-weight:500">Fair (5.8)</td>
+              <td><span class="sp sp-mt">Maintenance</span></td>
+            </tr>
+            <tr>
+              <td style="color:#1b6b5a;font-weight:500">TUN-0012</td>
+              <td style="font-weight:500">Hugh L. Carey Tunnel</td>
+              <td>Vehicular Tunnel</td><td>Brooklyn / Manhattan</td>
+              <td style="color:#185fa5;font-weight:500">Good (6.9)</td>
+              <td><span class="sp sp-rv">Under Review</span></td>
+            </tr>
+            <tr>
+              <td style="color:#1b6b5a;font-weight:500">RW-0221</td>
+              <td style="font-weight:500">Hutchinson Pkwy Wall</td>
+              <td>Retaining Wall</td><td>Bronx</td>
+              <td style="color:#a32d2d;font-weight:500">Poor (3.1)</td>
+              <td><span class="sp sp-cx">Critical</span></td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="adp">
+          <div class="adp-l">
+            <div class="adp-t">BRG-0041 — Manhattan Bridge</div>
+            <div class="adp-r"><span class="adp-k">Last Inspection</span><span class="adp-v">Feb 14, 2026</span></div>
+            <div class="adp-r"><span class="adp-k">Inspector</span><span class="adp-v">J. Rivera</span></div>
+            <div class="adp-r"><span class="adp-k">Next Due</span><span class="adp-v">Aug 2026</span></div>
+            <div class="adp-r"><span class="adp-k">Open Defects</span><span class="adp-v" style="color:#1b6b5a">2 Minor</span></div>
+          </div>
+          <div class="adp-c">
+            <div class="adp-cl">Condition Trend</div>
+            <div class="mbars">
+              <div class="mbar" style="height:52%"></div><div class="mbar" style="height:58%"></div>
+              <div class="mbar" style="height:55%"></div><div class="mbar" style="height:68%"></div>
+              <div class="mbar hi" style="height:71%"></div><div class="mbar hi" style="height:74%"></div>
+            </div>
+            <div style="font-size:8px;color:#ccc;margin-top:4px">2020 → 2026</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROJECT 3: NYCDOB -->
+  <div class="proj">
+    <div class="proj-info">
+      <p class="pi-num">03 / 03</p>
+      <p class="pi-client">NYC Department of Buildings</p>
+      <h3 class="pi-title">Multi-Stage Document Review & Comment Workflow</h3>
+      <p class="pi-desc">NYC DOB needed a way to replace their paper-based permit review process. I built a structured workflow where each application moves through four stages, with role-gated approvals and a full comment thread at every step.</p>
+      <ul class="pi-feats">
+        <li>Four-stage pipeline from Submission through Technical, Legal, and Final Approval</li>
+        <li>Role-based access so applicants, reviewers, supervisors and admins each see only what they need</li>
+        <li>Threaded comments with open and resolved states, plus email notifications on status changes</li>
+        <li>Full timestamped audit log of every status change and comment across each application</li>
+      </ul>
+      <div class="pi-chips">
+        <span class="pi-chip">Angular</span><span class="pi-chip">TypeScript</span>
+        <span class="pi-chip">NodeJS</span><span class="pi-chip">Azure AD</span>
+        <span class="pi-chip">SQL Server</span><span class="pi-chip">JWT / OAuth2</span>
+      </div>
+    </div>
+    <div class="proj-visual">
+      <div class="docrv">
+        <div class="drt">
+          <div><div class="drt-title">Document Review Portal</div><div class="drt-sub">NYC Department of Buildings — Permit Applications</div></div>
+          <span class="drt-user">Reviewer · J. Hoffman</span>
+        </div>
+        <div class="drs">
+          <div class="drs-s done">1 · Submission</div>
+          <div class="drs-s done">2 · Technical</div>
+          <div class="drs-s active">3 · Legal Review</div>
+          <div class="drs-s">4 · Final Approval</div>
+        </div>
+        <div class="drb">
+          <div class="drl">
+            <div class="drl-h">Applications (14)</div>
+            <div class="drl-i on"><div class="drl-id">BK-2026-04821</div><div class="drl-m">Legal Review · Assigned</div></div>
+            <div class="drl-i"><div class="drl-id">MN-2026-03917</div><div class="drl-m">Legal Review · Pending</div></div>
+            <div class="drl-i"><div class="drl-id">QN-2026-04102</div><div class="drl-m">Technical · In Progress</div></div>
+            <div class="drl-i"><div class="drl-id">BX-2026-03588</div><div class="drl-m">Submission · Complete</div></div>
+            <div class="drl-i"><div class="drl-id">SI-2026-02744</div><div class="drl-m">Final Approval · Pending</div></div>
+          </div>
+          <div class="drm">
+            <div class="drm-h"><span>BK-2026-04821 · Comments (3)</span><span style="font-size:8px;color:#bbb">Mixed-use residential, Brooklyn</span></div>
+            <div class="drc res">
+              <div class="drc-h"><span class="drc-a">T. Morales — Technical</span><span class="drc-d">Mar 12</span></div>
+              <div class="drc-b">Structural calculations on pp. 14–17 require PE stamp. Missing from submission package.</div>
+              <span class="drc-t res">Resolved</span>
+            </div>
+            <div class="drc open">
+              <div class="drc-h"><span class="drc-a">J. Hoffman — Legal</span><span class="drc-d">Apr 3</span></div>
+              <div class="drc-b">Zoning variance approval letter not attached. Required before legal sign-off per §28-112.2.</div>
+              <span class="drc-t open">Open · Action Required</span>
+            </div>
+            <div class="drc">
+              <div class="drc-h"><span class="drc-a">System</span><span class="drc-d">Apr 3</span></div>
+              <div class="drc-b">Stage advanced to Legal Review. Assigned to J. Hoffman.</div>
+            </div>
+            <div class="dra">
+              <button class="dra-btn dra-ap">Approve Stage</button>
+              <button class="dra-btn dra-rj">Request Revision</button>
+              <button class="dra-btn dra-nt">Add Comment</button>
+            </div>
+          </div>
+          <div class="drsd">
+            <div style="margin-bottom:12px">
+              <div class="drsd-l">Application</div>
+              <div class="drsd-r"><span class="drsd-k">Filed</span><span class="drsd-v">Feb 28</span></div>
+              <div class="drsd-r"><span class="drsd-k">Type</span><span class="drsd-v">New Building</span></div>
+              <div class="drsd-r"><span class="drsd-k">Borough</span><span class="drsd-v">Brooklyn</span></div>
+            </div>
+            <div class="drsd-l">Review Progress</div>
+            <div class="drsd-bl">Technical (100%)</div>
+            <div class="drsd-bt"><div class="drsd-bf" style="width:100%;background:#1b6b5a"></div></div>
+            <div class="drsd-bl">Legal (40%)</div>
+            <div class="drsd-bt"><div class="drsd-bf" style="width:40%;background:#1e4f8a"></div></div>
+            <div class="drsd-bl">Final (0%)</div>
+            <div class="drsd-bt"><div class="drsd-bf" style="width:0%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-in">
+    <div>
+      <div class="sec-eyebrow"><span class="sel"></span><span class="set">About</span></div>
+      <h2 class="about-h2">Engineering discipline.<br>Design instinct.</h2>
+      <p class="about-p">I'm a Software Developer III at AECOM Technical Services. Most of my work is at the intersection of UX design, 3D BIM visualization, and cloud engineering. I tend to own the whole thing: design, frontend, backend, and deployment. I like working on problems where the stakes are real and the data is messy.</p>
+      <div class="about-ms">
+        <div class="am"><div class="am-n">7+</div><div class="am-l">Years at AECOM</div></div>
+        <div class="am"><div class="am-n">10+</div><div class="am-l">Platforms shipped</div></div>
+        <div class="am"><div class="am-n">3</div><div class="am-l">Countries deployed</div></div>
+      </div>
+    </div>
+    <div class="sg">
+      <div class="sc">
+        <div class="sc-t">Frontend</div>
+        <div class="si">React · Angular 20</div>
+        <div class="si">TypeScript · RxJS · NgRx</div>
+        <div class="si">Tailwind · shadcn/ui</div>
+        <div class="si">D3.js · HighCharts</div>
+      </div>
+      <div class="sc">
+        <div class="sc-t">3D & Geo</div>
+        <div class="si">Autodesk APS / Forge</div>
+        <div class="si">Autodesk Construction Cloud</div>
+        <div class="si">Three.js · WebGL</div>
+        <div class="si">MapLibre GL JS · PMTiles</div>
+      </div>
+      <div class="sc">
+        <div class="sc-t">Backend & Cloud</div>
+        <div class="si">NodeJS · Express · TypeORM</div>
+        <div class="si">AWS · Azure AD & Functions</div>
+        <div class="si">MySQL · MongoDB · SQL Server</div>
+        <div class="si">Docker · Azure DevOps · CI/CD</div>
+      </div>
+      <div class="sc">
+        <div class="sc-t">Process</div>
+        <div class="si">Agile / SCRUM</div>
+        <div class="si">Cross-functional leadership</div>
+        <div class="si">AI-assisted development</div>
+        <div class="si">Mentorship & onboarding</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="sec-eyebrow" style="justify-content:center;margin-bottom:1.5rem"><span class="sel"></span><span class="set">Contact</span><span class="sel"></span></div>
+  <h2 class="con-h2">Let's work together.</h2>
+  <p class="con-sub">Open to UX/UI consulting, full-stack contract work, and platform architecture conversations. Based in Phoenix, AZ and available for remote work.</p>
+  <div class="con-row">
+    <a href="mailto:drashtisolanki.jobs@gmail.com" class="con-p">drashtisolanki.jobs@gmail.com</a>
+    <a href="https://linkedin.com/in/drashtisolanki" class="con-s">LinkedIn →</a>
+  </div>
+</section>
+
+<footer>
+  <span>© 2026 Drashti Solanki</span>
+  <span>Phoenix, AZ &nbsp;&nbsp;Full Stack &nbsp;&nbsp;UX/UI &nbsp;&nbsp;3D Visualization</span>
+</footer>
+</body>
+</html>
