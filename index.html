@@ -16,49 +16,13 @@
 }
 html{scroll-behavior:smooth}
 section{scroll-margin-top:70px}
+.nav-logo-short{display:none}
+.nav-logo-full{display:inline}
 @media(max-width:700px){
   .nav-logo-full{display:none}
   .nav-logo-short{display:inline}
-
-  .proj-visual{
-    padding:1.25rem!important;
-    overflow:hidden!important;
-    background:var(--bg3)!important;
-  }
-
-  /* Thumbnail container — fixed viewport window */
-  .proj-visual > *,
-  .proj-visual > div {
-    position:relative;
-    width:100% !important;
-    max-width:100% !important;
-    height:220px !important;
-    overflow:hidden !important;
-    border-radius:10px !important;
-    pointer-events:none;
-  }
-
-  /* Scale inner content down like a screenshot */
-  .proj-visual > * > *,
-  .proj-visual > div > * {
-    transform:scale(0.45);
-    transform-origin:top left;
-    width:222% !important;
-    max-width:none !important;
-    pointer-events:none;
-  }
-
-  /* Fade bottom of thumbnail */
-  .proj-visual > *::after,
-  .proj-visual > div::after {
-    content:'';
-    position:absolute;
-    bottom:0;left:0;right:0;
-    height:60px;
-    background:linear-gradient(to bottom, transparent, var(--bg3));
-    border-radius:0 0 10px 10px;
-    pointer-events:none;
-  }
+  #ps-line{display:none !important}
+  .proj-visual{display:none !important}
 }
 
 body{font-family:'Geist',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
