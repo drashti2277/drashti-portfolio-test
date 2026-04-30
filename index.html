@@ -16,13 +16,49 @@
 }
 html{scroll-behavior:smooth}
 section{scroll-margin-top:70px}
-@media(max-width:600px){
+@media(max-width:700px){
   .nav-logo-full{display:none}
   .nav-logo-short{display:inline}
-  .proj-visual{padding:1rem!important;overflow:hidden!important}
-  .dfw,.docrv,.asset,.rfi-mock{transform:scale(0.55);transform-origin:top center;margin-bottom:-200px}
-  [style*="background:#f2f3f8"]{transform:scale(0.55);transform-origin:top center;margin-bottom:-200px}
-  [style*="background:#fff;font-size:10px"]{transform:scale(0.55);transform-origin:top center;margin-bottom:-150px}
+
+  .proj-visual{
+    padding:1.25rem!important;
+    overflow:hidden!important;
+    background:var(--bg3)!important;
+  }
+
+  /* Thumbnail container — fixed viewport window */
+  .proj-visual > *,
+  .proj-visual > div {
+    position:relative;
+    width:100% !important;
+    max-width:100% !important;
+    height:220px !important;
+    overflow:hidden !important;
+    border-radius:10px !important;
+    pointer-events:none;
+  }
+
+  /* Scale inner content down like a screenshot */
+  .proj-visual > * > *,
+  .proj-visual > div > * {
+    transform:scale(0.45);
+    transform-origin:top left;
+    width:222% !important;
+    max-width:none !important;
+    pointer-events:none;
+  }
+
+  /* Fade bottom of thumbnail */
+  .proj-visual > *::after,
+  .proj-visual > div::after {
+    content:'';
+    position:absolute;
+    bottom:0;left:0;right:0;
+    height:60px;
+    background:linear-gradient(to bottom, transparent, var(--bg3));
+    border-radius:0 0 10px 10px;
+    pointer-events:none;
+  }
 }
 
 body{font-family:'Geist',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -289,7 +325,7 @@ footer{border-top:1px solid var(--border);padding:1.75rem 2.5rem;display:flex;al
       </div>
     </div>
     <div class="proj-visual">
-      <div class="mockup-thumb"><div class="dfw mockup-thumb-inner">
+      <div class="dfw">
         <div class="dfw-top">
           <div class="dfw-logo"><div class="dfw-logo-box">Airport</div><span class="dfw-logo-sub">Dynamic Model</span></div>
           <div style="display:flex;gap:8px">
