@@ -16,6 +16,15 @@
 }
 html{scroll-behavior:smooth}
 section{scroll-margin-top:70px}
+@media(max-width:600px){
+  .nav-logo-full{display:none}
+  .nav-logo-short{display:inline}
+  .proj-visual{padding:1rem!important;overflow:hidden!important}
+  .dfw,.docrv,.asset,.rfi-mock{transform:scale(0.55);transform-origin:top center;margin-bottom:-200px}
+  [style*="background:#f2f3f8"]{transform:scale(0.55);transform-origin:top center;margin-bottom:-200px}
+  [style*="background:#fff;font-size:10px"]{transform:scale(0.55);transform-origin:top center;margin-bottom:-150px}
+}
+
 body{font-family:'Geist',sans-serif;background:var(--bg);color:var(--text);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
 
 nav{
@@ -229,7 +238,7 @@ footer{border-top:1px solid var(--border);padding:1.75rem 2.5rem;display:flex;al
 <body>
 
 <nav>
-  <span class="nav-logo">Drashti Solanki</span>
+  <span class="nav-logo"><span class="nav-logo-full">Drashti Solanki</span><span class="nav-logo-short">DS</span></span>
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
@@ -280,7 +289,7 @@ footer{border-top:1px solid var(--border);padding:1.75rem 2.5rem;display:flex;al
       </div>
     </div>
     <div class="proj-visual">
-      <div class="dfw">
+      <div class="mockup-thumb"><div class="dfw mockup-thumb-inner">
         <div class="dfw-top">
           <div class="dfw-logo"><div class="dfw-logo-box">Airport</div><span class="dfw-logo-sub">Dynamic Model</span></div>
           <div style="display:flex;gap:8px">
@@ -752,7 +761,7 @@ footer{border-top:1px solid var(--border);padding:1.75rem 2.5rem;display:flex;al
   <p class="con-sub">Open to UX/UI consulting, full-stack contract work, and platform architecture conversations. Based in Phoenix, AZ and available for remote work.</p>
   <div class="con-row">
     <a href="mailto:drashtisolanki.jobs@gmail.com" class="con-p">drashtisolanki.jobs@gmail.com</a>
-    <a href="https://linkedin.com/in/drashti-solanki" class="con-s">LinkedIn →</a>
+    <a href="https://www.linkedin.com/in/drashti-solanki/" class="con-s">LinkedIn →</a>
   </div>
 </section>
 
