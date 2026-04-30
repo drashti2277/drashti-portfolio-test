@@ -31,7 +31,7 @@ nav{
 .nav-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--teal);animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
 
-.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 2.5rem 5rem;max-width:1100px;margin:0 auto}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 2.5rem 3rem;max-width:1100px;margin:0 auto}
 .hero-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:2rem;opacity:0;animation:up 0.7s 0.1s ease forwards}
 .eyebrow-line{display:none}
 .eyebrow-text{font-size:1.1rem;letter-spacing:0.02em;text-transform:none;color:var(--text2);font-weight:400}
@@ -45,7 +45,7 @@ nav{
 .cta-primary:hover{background:var(--accent2)}
 .cta-secondary{display:inline-flex;align-items:center;gap:8px;color:var(--text2);font-size:0.875rem;text-decoration:none;border:1px solid var(--border2);padding:12px 24px;border-radius:8px;transition:all 0.2s}
 .cta-secondary:hover{color:var(--text);border-color:rgba(255,255,255,0.25)}
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:5rem;opacity:0;animation:up 0.7s 0.5s ease forwards}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:2.5rem;opacity:0;animation:up 0.7s 0.5s ease forwards}
 .hs{padding:1.5rem 2rem;border-right:1px solid var(--border)}
 .hs:last-child{border-right:none}
 .hs-num{font-family:'Instrument Serif',serif;font-size:2.2rem;color:var(--text);line-height:1;margin-bottom:0.4rem}
@@ -53,18 +53,17 @@ nav{
 
 @keyframes up{to{opacity:1;transform:translateY(0)}from{opacity:0;transform:translateY(16px)}}
 
-#work{padding:7rem 2.5rem;max-width:1100px;margin:0 auto}
+#work{padding:3rem 2.5rem;max-width:1100px;margin:0 auto}
 .sec-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
 .sel{color:var(--text3);font-size:0.75rem}
 .set{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3)}
-.sec-h2{font-family:'Instrument Serif',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);line-height:1.15;color:var(--text);margin-bottom:4rem;max-width:500px}
+.sec-h2{font-family:'Instrument Serif',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);line-height:1.15;color:var(--text);margin-bottom:2rem;max-width:500px}
 
-.proj{display:grid;grid-template-columns:1fr 1.8fr;border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:2.5rem;background:var(--bg2);transition:border-color 0.3s}
+.proj{display:flex;flex-direction:column;border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:2.5rem;background:var(--bg2);transition:border-color 0.3s}
 .proj:hover{border-color:var(--border2)}
-.proj.flip{direction:rtl}
-.proj.flip>*{direction:ltr}
-.proj-info{padding:2.5rem 2rem;border-right:1px solid var(--border);display:flex;flex-direction:column;justify-content:center}
-.proj.flip .proj-info{border-right:none;border-left:1px solid var(--border)}
+.proj.flip{direction:ltr}
+.proj-info{padding:2rem 2.5rem;border-bottom:1px solid var(--border);display:flex;flex-direction:column;justify-content:flex-start}
+
 .pi-num{font-size:0.72rem;color:var(--text3);letter-spacing:0.1em;margin-bottom:1rem}
 .pi-client{font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--accent);margin-bottom:0.6rem}
 .pi-title{font-family:'Instrument Serif',serif;font-size:1.45rem;line-height:1.2;color:var(--text);margin-bottom:0.9rem}
@@ -75,10 +74,11 @@ nav{
 .pi-feats li::before{content:'→';position:absolute;left:0;color:var(--text3);font-size:0.75rem}
 .pi-chips{display:flex;flex-wrap:wrap;gap:5px}
 .pi-chip{font-size:0.7rem;padding:3px 9px;border-radius:4px;background:var(--bg4);border:1px solid var(--border);color:var(--text3);letter-spacing:0.02em}
-.proj-visual{background:var(--bg3);display:flex;align-items:stretch;min-height:420px;overflow:hidden}
+.proj-visual{background:var(--bg3);display:flex;align-items:center;justify-content:center;width:100%;padding:2.5rem;overflow:visible}
 
-/* ── DFW MOCKUP ── */
-.dfw{width:100%;display:flex;flex-direction:column;font-size:11px}
+
+/* ── Airport MOCKUP ── */
+.dfw{width:100%;max-width:900px;display:flex;flex-direction:column;font-size:11px;border-radius:12px;overflow:hidden}
 .dfw-top{height:38px;background:#111;border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between;padding:0 14px;flex-shrink:0}
 .dfw-logo{display:flex;align-items:center;gap:6px}
 .dfw-logo-box{background:#e8401a;padding:3px 7px;border-radius:3px;font-size:10px;font-weight:500;color:#fff;letter-spacing:0.04em}
@@ -112,7 +112,8 @@ nav{
 .tl-btn{position:absolute;bottom:6px;left:2.5rem;background:rgba(232,144,74,0.12);border:1px solid rgba(232,144,74,0.35);border-radius:4px;padding:2px 8px;font-size:8px;color:var(--accent);display:flex;align-items:center;gap:5px}
 
 /* ── ASSET MOCKUP ── */
-.asset{width:100%;display:flex;flex-direction:column;background:#fff;font-size:11px;color:#111}
+.asset{width:100%;max-width:900px;display:flex;flex-direction:column;background:#fff;font-size:11px;color:#111;border-radius:12px;overflow:hidden}
+.rfi-mock{width:100%;max-width:900px;display:flex;flex-direction:column;font-size:11px;color:#111;background:#fff;overflow:hidden;border-radius:8px;box-shadow:0 20px 60px rgba(0,0,0,0.4)}
 .ah{background:#1b6b5a;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
 .ah-t{color:#fff;font-size:12px;font-weight:500}
 .ah-s{color:rgba(255,255,255,0.55);font-size:9px;margin-top:1px}
@@ -143,8 +144,8 @@ nav{
 .mbar.hi{background:#1b6b5a}
 
 /* ── DOC REVIEW MOCKUP ── */
-.docrv{width:100%;display:flex;flex-direction:column;background:#fff;font-size:11px;color:#111}
-.drt{background:#1e4f8a;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.docrv{width:100%;max-width:900px;display:flex;flex-direction:column;background:#fff;font-size:11px;color:#111;border-radius:12px;overflow:hidden}
+.drt{background:#1e4f8a;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0;border-bottom:1px solid rgba(255,255,255,0.15)}
 .drt-title{color:#fff;font-size:12px;font-weight:500}
 .drt-sub{color:rgba(255,255,255,0.5);font-size:9px;margin-top:1px}
 .drt-user{background:rgba(255,255,255,0.12);color:#fff;font-size:8px;padding:3px 9px;border-radius:100px}
@@ -153,7 +154,7 @@ nav{
 .drs-s:last-child{border-right:none}
 .drs-s.done{color:#185fa5}
 .drs-s.done::after{content:'✓';position:absolute;right:6px;top:50%;transform:translateY(-50%);font-size:8px;color:#185fa5}
-.drs-s.active{background:#1e4f8a;color:#fff}
+.drs-s.active{background:#1e4f8a;color:#fff;border-top:2px solid #4a80c4;box-shadow:0 -2px 8px rgba(30,79,138,0.4)}
 .drb{display:flex;flex:1;overflow:hidden}
 .drl{width:170px;border-right:1px solid #e8e5df;overflow:hidden;flex-shrink:0}
 .drl-h{padding:7px 10px;font-size:8px;color:#aaa;letter-spacing:0.08em;text-transform:uppercase;background:#f7f6f3;border-bottom:1px solid #e8e5df;font-weight:500}
@@ -189,7 +190,7 @@ nav{
 .drsd-bf{height:100%;border-radius:2px}
 
 /* ABOUT */
-#about{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:7rem 2.5rem}
+#about{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:3rem 2.5rem}
 .about-in{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start}
 .about-h2{font-family:'Instrument Serif',serif;font-size:clamp(1.6rem,2.8vw,2.2rem);line-height:1.2;color:var(--text);margin-bottom:1.25rem;margin-top:1.5rem}
 .about-p{font-size:0.875rem;color:var(--text2);line-height:1.8;margin-bottom:2rem}
@@ -203,7 +204,7 @@ nav{
 .si{font-size:0.78rem;color:var(--text3);padding:3px 0;border-bottom:1px solid var(--border)}
 .si:last-child{border-bottom:none}
 
-#contact{padding:7rem 2.5rem;max-width:700px;margin:0 auto;text-align:center}
+#contact{padding:3rem 2.5rem;max-width:700px;margin:0 auto;text-align:center}
 .con-h2{font-family:'Instrument Serif',serif;font-size:clamp(2rem,4vw,3rem);line-height:1.1;color:var(--text);margin-bottom:1rem}
 .con-sub{font-size:0.9rem;color:var(--text2);line-height:1.75;margin-bottom:2.5rem}
 .con-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
@@ -217,7 +218,7 @@ footer{border-top:1px solid var(--border);padding:1.75rem 2.5rem;display:flex;al
   .hero{padding:90px 1.25rem 4rem}.hero-h1{font-size:2.6rem}
   .hero-stats{grid-template-columns:1fr}.hs{border-right:none!important;border-bottom:1px solid var(--border)}.hs:last-child{border-bottom:none}
   #work{padding:4rem 1.25rem}
-  .proj{grid-template-columns:1fr}.proj.flip{direction:ltr}.proj-info{border-right:none!important;border-left:none!important;border-bottom:1px solid var(--border)}.proj-visual{min-height:260px}
+  
   #about{padding:4rem 1.25rem}.about-in{grid-template-columns:1fr;gap:3rem}
   #contact{padding:4rem 1.25rem}
   footer{flex-direction:column;gap:0.5rem;text-align:center}
@@ -232,9 +233,9 @@ footer{border-top:1px solid var(--border);padding:1.75rem 2.5rem;display:flex;al
     <ul class="nav-links">
       <li><a href="#work">Work</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li><a href="#resume">Resume</a></li><li><a href="#contact">Contact</a></li>
     </ul>
-    <span class="nav-badge">Open to work</span>
+    
   </div>
 </nav>
 
@@ -249,27 +250,26 @@ footer{border-top:1px solid var(--border);padding:1.75rem 2.5rem;display:flex;al
   <div class="hero-stats">
     <div class="hs"><div class="hs-num">7+</div><div class="hs-label">Years at AECOM</div></div>
     <div class="hs"><div class="hs-num">10+</div><div class="hs-label">Enterprise platforms shipped</div></div>
-    <div class="hs"><div class="hs-num">3</div><div class="hs-label">Countries deployed — US, UK, AU</div></div>
+    <div class="hs"><div class="hs-num">3</div><div class="hs-label">Countries deployed - US, UK, AU</div></div>
   </div>
 </section>
 
 <section id="work">
-  <div class="sec-eyebrow"><span class="sel">✦</span><span class="set">Selected Work</span></div>
-  <h2 class="sec-h2">Work I&#39;ve shipped across infrastructure and government.</h2>
+  <div class="sec-eyebrow"><span class="sel">✦</span><span class="set">Some Selected Work out of all</span></div>
+  <h2 class="sec-h2">Projects, not prototypes.</h2>
 
-  <!-- PROJECT 1: DFW -->
+  <!-- PROJECT 1: Airport -->
   <div class="proj">
     <div class="proj-info">
       <p class="pi-num">01 / 03</p>
-      <p class="pi-client">Dallas Fort Worth International Airport</p>
-      <h3 class="pi-title">DFW Dynamic Model — 4D Construction Viewer</h3>
-      <p class="pi-desc">I built the DFW Dynamic Model to give construction and operations teams a single place to see what's happening across the entire airport campus in 4D. It connects live BIM models to a schedule timeline so you can scrub from 2026 to 2031 and watch the airport transform.</p>
+      <p class="pi-client">International Airport</p>
+      <h3 class="pi-title">3D Construction Visualization Platform</h3>
+      <p class="pi-desc">Built a React-based 3D model viewer integrating Autodesk APS/Forge Viewer with Autodesk Construction Cloud. Implemented the Model Derivative API with two-legged OAuth2, SVF translation, multi-model loading, and dynamic construction zone mesh overlays.</p>
       <ul class="pi-feats">
-        <li>Interactive timeline scrubber spanning 2026 to 2031, covering all terminals and airfield zones</li>
-        <li>Color-coded project overlays showing active closures for runways, taxiways and gates in real time</li>
-        <li>Layered legend with toggles for Airfield, FAA Requirements, Airlines, Delays and Facilities</li>
-        <li>Multi-model BIM loading through Autodesk APS and ACC using SVF2 format and two-legged OAuth2</li>
-        <li>Node.js backend handling S3 uploads with signed URLs and translation status polling per model</li>
+        <li>Multi-model loading with dynamic construction zone mesh overlays per terminal</li>
+        <li>Model Derivative API with two-legged OAuth2 and SVF translation pipeline</li>
+        <li>Node.js backend handling model uploads via S3 signed URLs and URN translation status polling</li>
+        <li>Integrated with Autodesk Construction Cloud for model management and access control</li>
       </ul>
       <div class="pi-chips">
         <span class="pi-chip">React</span><span class="pi-chip">TypeScript</span>
@@ -281,10 +281,10 @@ footer{border-top:1px solid var(--border);padding:1.75rem 2.5rem;display:flex;al
     <div class="proj-visual">
       <div class="dfw">
         <div class="dfw-top">
-          <div class="dfw-logo"><div class="dfw-logo-box">DFW</div><span class="dfw-logo-sub">Dynamic Model</span></div>
+          <div class="dfw-logo"><div class="dfw-logo-box">Airport</div><span class="dfw-logo-sub">Dynamic Model</span></div>
           <div style="display:flex;gap:8px">
             <div class="dfw-filter">Terminal: <span>All</span></div>
-            <div class="dfw-filter">Level: <span>—</span></div>
+            <div class="dfw-filter">Level: <span>-</span></div>
           </div>
           <div style="display:flex;gap:12px">
             <div class="dfw-toggle-row"><div class="dfw-tog"></div><span>Projects</span></div>
@@ -373,171 +373,331 @@ footer{border-top:1px solid var(--border);padding:1.75rem 2.5rem;display:flex;al
   <div class="proj flip">
     <div class="proj-info">
       <p class="pi-num">02 / 03</p>
-      <p class="pi-client">NYC Department of Transportation</p>
-      <h3 class="pi-title">Infrastructure Asset Management & Inspection Platform</h3>
-      <p class="pi-desc">Built for NYCDOT to manage thousands of city infrastructure assets across all five boroughs. Inspectors log field data on their phones, managers see dashboards, and the system generates printable PDF reports from live records.</p>
+      <p class="pi-client">NYC &amp; Multi-City Projects Projects</p>
+      <h3 class="pi-title">Full Stack Web Application Suite</h3>
+      <p class="pi-desc">Developed and maintained multiple full stack web applications using Angular, Node.js, Express and MySQL across NYC and multi-city infrastructure projects. Apps covered RFI and submittal tracking, document review workflows, asset management, report generation and data collection.</p>
       <ul class="pi-feats">
-        <li>Separate role-based views for field inspectors, managers and executives</li>
-        <li>Search and filter across asset type, condition rating and borough with instant results</li>
-        <li>Condition trend charts showing inspection history over time for each individual asset</li>
-        <li>One-click printable PDF reports generated from live database records</li>
+        <li>LIRR TRAC - submittal tracking and coordination with status workflows and role-based actions</li>
+        <li>NYCDOB - multi-stage document review with threaded comments and role-gated approvals</li>
+        <li>DOT - asset management with a document-styled printable and editable report page</li>
+        <li>Practice Health Tool and Strategy Plus - staff resourcing and space utilization tools</li>
       </ul>
       <div class="pi-chips">
-        <span class="pi-chip">Angular</span><span class="pi-chip">TypeScript</span>
-        <span class="pi-chip">D3.js</span><span class="pi-chip">NodeJS</span>
-        <span class="pi-chip">SQL Server</span><span class="pi-chip">Azure</span>
+        <span class="pi-chip">Angular 7/8</span><span class="pi-chip">TypeScript</span>
+        <span class="pi-chip">NodeJS</span><span class="pi-chip">Express</span>
+        <span class="pi-chip">MySQL</span><span class="pi-chip">D3.js</span>
         <span class="pi-chip">JWT / OAuth2</span>
       </div>
     </div>
-    <div class="proj-visual">
-      <div class="asset">
-        <div class="ah">
-          <div><div class="ah-t">Infrastructure Asset Registry</div><div class="ah-s">NYC Dept. of Transportation — Bridges & Structures Division</div></div>
-          <span class="ah-b">1,284 Assets</span>
+    <div class="proj-visual" style="flex-direction:column;gap:0;align-items:stretch;padding:2.5rem;">
+
+      <!-- Submittal UI -->
+      <div style="padding:14px 16px 10px;background:var(--bg3);font-size:0.95rem;font-weight:500;color:var(--text2);border-bottom:1px solid var(--border);flex-shrink:0;font-family:'Instrument Serif',serif;font-style:italic">Infrastructure Projects</div>
+      <div style="padding:10px 16px;background:var(--bg3);border-radius:6px;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);font-weight:500;text-align:center;margin:0 auto 1rem;width:fit-content">Submittal Tracking</div>
+      <div style="width:100%;max-width:900px;background:#fff;font-size:10px;color:#111;flex-shrink:0;border-radius:12px;border:1px solid var(--border);margin-bottom:0;overflow:hidden">
+        <div style="background:#1a1a1a;height:34px;display:flex;align-items:center;padding:0 12px;gap:8px;border-bottom:1px solid #333;border-top:1px solid var(--border);border-left:1px solid var(--border);border-right:1px solid var(--border);border-radius:8px 8px 0 0">
+          <div style="display:flex;flex-direction:column;gap:2px"><div style="height:1.5px;width:14px;background:#aaa"></div><div style="height:1.5px;width:14px;background:#aaa"></div><div style="height:1.5px;width:14px;background:#aaa"></div></div>
+          <span style="color:#fff;font-size:11px;font-weight:600;letter-spacing:0.04em">SUBMITTAL</span>
+          <div style="flex:1"></div>
         </div>
-        <div class="atb">
-          <div class="atb-search"><span style="color:#ccc">⌕</span><span>Search assets, ID, location...</span></div>
-          <button class="atb-btn on">All</button>
-          <button class="atb-btn">Bridges</button>
-          <button class="atb-btn">Tunnels</button>
-          <button class="atb-btn">Walls</button>
+        <div style="padding:10px 14px 6px;border-bottom:1px solid #e0e0e0">
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px">
+            <span style="font-size:12px;font-weight:600;color:#222;letter-spacing:0.04em">SUBMITTAL LIST</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;font-size:9px;color:#666">
+            <span>Task</span><select style="font-size:8px;border:1px solid #ddd;padding:2px 4px;border-radius:2px"><option>All</option></select>
+            <span>Disposition</span><select style="font-size:8px;border:1px solid #ddd;padding:2px 4px;border-radius:2px"><option>All</option></select>
+            <div style="flex:1"></div>
+            <input placeholder="Search" style="font-size:8px;border:1px solid #ddd;padding:2px 6px;border-radius:2px;width:70px">
+          </div>
         </div>
-        <table class="atbl">
-          <thead><tr><th>Asset ID</th><th>Name</th><th>Type</th><th>Borough</th><th>Rating</th><th>Status</th></tr></thead>
+        <table style="width:100%;border-collapse:collapse;font-size:8.5px">
+          <thead>
+            <tr style="background:#f5f5f5;border-bottom:2px solid #00bcd4">
+              <th style="padding:6px 10px;text-align:left;color:#555;font-weight:600">SUBMITTAL #</th>
+              <th style="padding:6px 8px;text-align:left;color:#555;font-weight:600">DUE ON</th>
+              <th style="padding:6px 8px;text-align:left;color:#555;font-weight:600">TYPE</th>
+              <th style="padding:6px 8px;text-align:left;color:#555;font-weight:600">BALL IN COURT</th>
+              <th style="padding:6px 8px;text-align:left;color:#555;font-weight:600">ACTION</th>
+              <th style="padding:6px 8px;text-align:left;color:#555;font-weight:600">STATUS</th>
+            </tr>
+          </thead>
           <tbody>
-            <tr>
-              <td style="color:#1b6b5a;font-weight:500">BRG-0041</td>
-              <td style="font-weight:500">Manhattan Bridge</td>
-              <td>Suspension Bridge</td><td>Manhattan / Brooklyn</td>
-              <td style="color:#1b6b5a;font-weight:500">Good (7.2)</td>
-              <td><span class="sp sp-ok">Active</span></td>
+            <tr style="border-bottom:1px solid #f0f0f0">
+              <td style="padding:7px 10px"><span style="color:#ffc107;margin-right:4px">●</span>SUB-2026-001</td>
+              <td style="padding:7px 8px">Mar-22-2026</td>
+              <td style="padding:7px 8px;color:#555">Specifications</td>
+              <td style="padding:7px 8px;color:#555">D. Sol</td>
+              <td style="padding:7px 8px"><button style="background:#4a7c9e;color:#fff;border:none;padding:4px 10px;border-radius:3px;font-size:8px;font-weight:600">REVIEW</button></td>
+              <td style="padding:7px 8px;color:#555">Compiling</td>
             </tr>
-            <tr>
-              <td style="color:#1b6b5a;font-weight:500">BRG-0089</td>
-              <td style="font-weight:500">Kosciuszko Bridge</td>
-              <td>Cable-stayed</td><td>Queens / Brooklyn</td>
-              <td style="color:#854f0b;font-weight:500">Fair (5.8)</td>
-              <td><span class="sp sp-mt">Maintenance</span></td>
+            <tr style="border-bottom:1px solid #f0f0f0;background:#fafafa">
+              <td style="padding:7px 10px"><span style="color:#4caf50;margin-right:4px">●</span>SUB-2026-002</td>
+              <td style="padding:7px 8px">Mar-22-2026</td>
+              <td style="padding:7px 8px;color:#555">Design Drawing</td>
+              <td style="padding:7px 8px;color:#555">D. Sol</td>
+              <td style="padding:7px 8px"><button style="background:#888;color:#fff;border:none;padding:4px 10px;border-radius:3px;font-size:8px;font-weight:600">VIEW</button></td>
+              <td style="padding:7px 8px;color:#555">For Acceptance</td>
             </tr>
-            <tr>
-              <td style="color:#1b6b5a;font-weight:500">TUN-0012</td>
-              <td style="font-weight:500">Hugh L. Carey Tunnel</td>
-              <td>Vehicular Tunnel</td><td>Brooklyn / Manhattan</td>
-              <td style="color:#185fa5;font-weight:500">Good (6.9)</td>
-              <td><span class="sp sp-rv">Under Review</span></td>
+            <tr style="border-bottom:1px solid #f0f0f0">
+              <td style="padding:7px 10px"><span style="color:#f44336;margin-right:4px">●</span>SUB-2026-003</td>
+              <td style="padding:7px 8px;color:#f44336;font-weight:500">Jan-10-2026</td>
+              <td style="padding:7px 8px;color:#555">Shop Drawing</td>
+              <td style="padding:7px 8px;color:#555">D. Sol</td>
+              <td style="padding:7px 8px"><button style="background:#4a7c9e;color:#fff;border:none;padding:4px 10px;border-radius:3px;font-size:8px;font-weight:600">REVIEW</button></td>
+              <td style="padding:7px 8px;color:#555">In Review</td>
             </tr>
-            <tr>
-              <td style="color:#1b6b5a;font-weight:500">RW-0221</td>
-              <td style="font-weight:500">Hutchinson Pkwy Wall</td>
-              <td>Retaining Wall</td><td>Bronx</td>
-              <td style="color:#a32d2d;font-weight:500">Poor (3.1)</td>
-              <td><span class="sp sp-cx">Critical</span></td>
+            <tr style="border-bottom:1px solid #f0f0f0">
+              <td style="padding:7px 10px"><span style="color:#f44336;margin-right:4px">●</span>SUB-2026-004</td>
+              <td style="padding:7px 8px">Apr-01-2026</td>
+              <td style="padding:7px 8px;color:#555">Technical</td>
+              <td style="padding:7px 8px;color:#555">D. Sol</td>
+              <td style="padding:7px 8px"><button style="background:#4a7c9e;color:#fff;border:none;padding:4px 10px;border-radius:3px;font-size:8px;font-weight:600">REVIEW</button></td>
+              <td style="padding:7px 8px;color:#555">In Review</td>
             </tr>
           </tbody>
         </table>
-        <div class="adp">
-          <div class="adp-l">
-            <div class="adp-t">BRG-0041 — Manhattan Bridge</div>
-            <div class="adp-r"><span class="adp-k">Last Inspection</span><span class="adp-v">Feb 14, 2026</span></div>
-            <div class="adp-r"><span class="adp-k">Inspector</span><span class="adp-v">J. Rivera</span></div>
-            <div class="adp-r"><span class="adp-k">Next Due</span><span class="adp-v">Aug 2026</span></div>
-            <div class="adp-r"><span class="adp-k">Open Defects</span><span class="adp-v" style="color:#1b6b5a">2 Minor</span></div>
+        <div style="padding:8px 12px;font-size:8px;color:#888;border-top:1px solid #f0f0f0">Showing 1 to 25 of 759 Entries</div>
+      </div>
+
+      <!-- NYCDOB UI -->
+      <div style="padding:10px 16px;background:var(--bg3);border-radius:6px;font-size:0.7rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);font-weight:500;text-align:center;margin:2rem auto 1rem;width:fit-content">Document Review Portal</div>
+      <div style="flex-shrink:0">
+        <div class="docrv">
+          <div class="drt">
+            <div><div class="drt-title">Document Review Portal</div><div class="drt-sub">Public Infrastructure - Permit Applications</div></div>
+            <span class="drt-user">Reviewer - D. Solanki</span>
           </div>
-          <div class="adp-c">
-            <div class="adp-cl">Condition Trend</div>
-            <div class="mbars">
-              <div class="mbar" style="height:52%"></div><div class="mbar" style="height:58%"></div>
-              <div class="mbar" style="height:55%"></div><div class="mbar" style="height:68%"></div>
-              <div class="mbar hi" style="height:71%"></div><div class="mbar hi" style="height:74%"></div>
+          <div class="drs">
+            <div class="drs-s done">1 - Submission</div>
+            <div class="drs-s done">2 - Technical</div>
+            <div class="drs-s active">3 - Legal Review</div>
+            <div class="drs-s">4 - Final Approval</div>
+          </div>
+          <div class="drb" style="min-height:260px">
+            <div class="drl">
+              <div class="drl-h">Applications (14)</div>
+              <div class="drl-i on"><div class="drl-id">APP-2026-04821</div><div class="drl-m">Legal Review - Assigned</div></div>
+              <div class="drl-i"><div class="drl-id">APP-2026-03917</div><div class="drl-m">Legal Review - Pending</div></div>
+              <div class="drl-i"><div class="drl-id">APP-2026-04102</div><div class="drl-m">Technical - In Progress</div></div>
+              <div class="drl-i"><div class="drl-id">APP-2026-03588</div><div class="drl-m">Submission - Complete</div></div>
             </div>
-            <div style="font-size:8px;color:#ccc;margin-top:4px">2020 → 2026</div>
+            <div class="drm">
+              <div class="drm-h"><span>APP-2026-04821 - Comments (3)</span><span style="font-size:8px;color:#bbb">Mixed-use residential, Brooklyn</span></div>
+              <div class="drc res">
+                <div class="drc-h"><span class="drc-a">D. Sola - Technical</span><span class="drc-d">Mar 12</span></div>
+                <div class="drc-b">Structural calculations on pp. 14-17 require PE stamp. Missing from submission package.</div>
+                <span class="drc-t res">Resolved</span>
+              </div>
+              <div class="drc open">
+                <div class="drc-h"><span class="drc-a">D. Solanki - Legal</span><span class="drc-d">Apr 3</span></div>
+                <div class="drc-b">Zoning variance approval letter not attached. Required before legal sign-off.</div>
+                <span class="drc-t open">Open - Action Required</span>
+              </div>
+              <div class="dra">
+                <button class="dra-btn dra-ap">Approve Stage</button>
+                <button class="dra-btn dra-rj">Request Revision</button>
+                <button class="dra-btn dra-nt">Add Comment</button>
+              </div>
+            </div>
+            <div class="drsd">
+              <div style="margin-bottom:12px">
+                <div class="drsd-l">Application</div>
+                <div class="drsd-r"><span class="drsd-k">Filed</span><span class="drsd-v">Feb 28</span></div>
+                <div class="drsd-r"><span class="drsd-k">Type</span><span class="drsd-v">New Building</span></div>
+                <div class="drsd-r"><span class="drsd-k">Borough</span><span class="drsd-v">Brooklyn</span></div>
+              </div>
+              <div class="drsd-l">Review Progress</div>
+              <div class="drsd-bl">Technical (100%)</div>
+              <div class="drsd-bt"><div class="drsd-bf" style="width:100%;background:#1b6b5a"></div></div>
+              <div class="drsd-bl">Legal (40%)</div>
+              <div class="drsd-bt"><div class="drsd-bf" style="width:40%;background:#1e4f8a"></div></div>
+              <div class="drsd-bl">Final (0%)</div>
+              <div class="drsd-bt"><div class="drsd-bf" style="width:0%"></div></div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- PROJECT 3: NYCDOB -->
-  <div class="proj">
+  
+
+    <!-- PROJECT 4: Cost.Carbon -->
+  <div class="proj flip">
     <div class="proj-info">
       <p class="pi-num">03 / 03</p>
-      <p class="pi-client">NYC Department of Buildings</p>
-      <h3 class="pi-title">Multi-Stage Document Review & Comment Workflow</h3>
-      <p class="pi-desc">NYC DOB needed a way to replace their paper-based permit review process. I built a structured workflow where each application moves through four stages, with role-gated approvals and a full comment thread at every step.</p>
+      <p class="pi-client">AECOM - London, UK</p>
+      <h3 class="pi-title">Cost.Carbon - Carbon &amp; Cost Estimation Platform</h3>
+      <p class="pi-desc">Converted a complex Excel-based carbon and cost estimation tool into a full-stack web application. Streamlined assembly calculations for accurate final cost and carbon footprint reporting across RIBA project stages.</p>
       <ul class="pi-feats">
-        <li>Four-stage pipeline from Submission through Technical, Legal, and Final Approval</li>
-        <li>Role-based access so applicants, reviewers, supervisors and admins each see only what they need</li>
-        <li>Threaded comments with open and resolved states, plus email notifications on status changes</li>
-        <li>Full timestamped audit log of every status change and comment across each application</li>
+        <li>Multi-stage input flow covering RIBA Stage I and II with benchmark project comparisons</li>
+        <li>Key Rates panel with editable cost inputs per material - concrete, steel, M&amp;E, facades and more</li>
+        <li>Summary dashboard with elemental breakdown of embodied carbon per m2 (KgCO2/m2)</li>
+        <li>Scenario Comparison Analysis tab for side-by-side project cost and carbon modelling</li>
+        <li>Export Data and Save as PDF output built into the report view</li>
       </ul>
       <div class="pi-chips">
-        <span class="pi-chip">Angular</span><span class="pi-chip">TypeScript</span>
-        <span class="pi-chip">NodeJS</span><span class="pi-chip">Azure AD</span>
-        <span class="pi-chip">SQL Server</span><span class="pi-chip">JWT / OAuth2</span>
+        <span class="pi-chip">Angular 17</span>
+        <span class="pi-chip">TypeScript</span>
+        <span class="pi-chip">NodeJS</span>
+        <span class="pi-chip">MySQL</span>
+        <span class="pi-chip">TypeORM</span>
+        <span class="pi-chip">ChartJS</span>
       </div>
     </div>
     <div class="proj-visual">
-      <div class="docrv">
-        <div class="drt">
-          <div><div class="drt-title">Document Review Portal</div><div class="drt-sub">NYC Department of Buildings — Permit Applications</div></div>
-          <span class="drt-user">Reviewer · J. Hoffman</span>
+      <div style="width:100%;max-width:900px;display:flex;flex-direction:column;font-size:11px;background:#f2f3f8;border-radius:12px;overflow:hidden;max-width:900px;width:100%">
+        <!-- topbar -->
+        <div style="background:#2d3f6e;padding:0 20px;height:44px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0">
+          <span style="color:#fff;font-size:15px;font-weight:700;letter-spacing:0.01em">Cost.Carbon</span>
+          <div style="display:flex;gap:20px;font-size:10px;color:rgba(255,255,255,0.8)">
+            <span>About</span><span>Guide</span><span>Help</span>
+            <div style="width:26px;height:26px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;font-size:9px;color:#2d3f6e;font-weight:700">DS</div>
+          </div>
         </div>
-        <div class="drs">
-          <div class="drs-s done">1 · Submission</div>
-          <div class="drs-s done">2 · Technical</div>
-          <div class="drs-s active">3 · Legal Review</div>
-          <div class="drs-s">4 · Final Approval</div>
+        <!-- body -->
+        <div style="display:flex;flex:1;overflow:hidden">
+          <!-- left sidebar -->
+          <div style="width:80px;background:#eef0f7;border-right:1px solid #d0d4e8;padding:12px 0;display:flex;flex-direction:column;align-items:center;gap:14px;flex-shrink:0">
+            <div style="text-align:center;padding:6px 4px;border-radius:6px;background:#fff;width:60px">
+              <div style="font-size:16px;margin-bottom:2px">⊞</div>
+              <div style="font-size:7.5px;color:#555;line-height:1.3">Project Info<br>&amp; Scope</div>
+            </div>
+            <div style="text-align:center;padding:6px 4px;border-radius:6px;width:60px">
+              <div style="font-size:13px;font-weight:700;color:#2d3f6e;border:1px solid #2d3f6e;border-radius:3px;width:18px;margin:0 auto 3px;line-height:18px">1</div>
+              <div style="font-size:7.5px;color:#555;line-height:1.3">RIBA Stage I<br>Input</div>
+            </div>
+            <div style="text-align:center;padding:6px 4px;border-radius:6px;width:60px">
+              <div style="font-size:13px;color:#aaa;margin-bottom:2px">⊡</div>
+              <div style="font-size:7.5px;color:#aaa;line-height:1.3">RIBA Stage II<br>Input</div>
+            </div>
+            <div style="text-align:center;padding:6px 4px;border-radius:6px;width:60px">
+              <div style="font-size:13px;color:#aaa;margin-bottom:2px">⊟</div>
+              <div style="font-size:7.5px;color:#aaa;line-height:1.3">Benchmark<br>Projects</div>
+            </div>
+            <div style="text-align:center;padding:6px 4px;border-radius:6px;background:#2d3f6e;width:60px">
+              <div style="font-size:13px;color:#fff;margin-bottom:2px">⊞</div>
+              <div style="font-size:7.5px;color:#fff;line-height:1.3;font-weight:500">Key Rates</div>
+            </div>
+            <div style="text-align:center;padding:6px 4px;width:60px">
+              <div style="font-size:7.5px;color:#aaa;line-height:1.3">Carbon<br>Assumptions</div>
+            </div>
+          </div>
+          <!-- key rates panel -->
+          <div style="width:220px;background:#fff;border-right:1px solid #dde6e6;padding:14px 12px;overflow-y:auto;flex-shrink:0">
+            <div style="font-size:13px;font-weight:700;color:#222;text-align:center;margin-bottom:14px;letter-spacing:0.04em">KEY RATES</div>
+            <div style="margin-bottom:10px">
+              <div style="font-size:10px;font-weight:600;color:#222;margin-bottom:2px">Concrete</div>
+              <div style="font-size:8.5px;color:#2d3f6e;margin-bottom:4px">Cost model allows £180 per m3</div>
+              <div style="display:flex;align-items:center;gap:4px"><span style="font-size:9px;color:#666">£</span><input style="flex:1;border:1px solid #ccc;border-radius:3px;padding:3px 6px;font-size:9px" value="123,456"><span style="font-size:9px;color:#888">m3</span></div>
+            </div>
+            <div style="margin-bottom:10px">
+              <div style="font-size:10px;font-weight:600;color:#222;margin-bottom:2px">Reinforcement</div>
+              <div style="font-size:8.5px;color:#2d3f6e;margin-bottom:4px">Cost model allows £1550 per Tonne</div>
+              <div style="display:flex;align-items:center;gap:4px"><span style="font-size:9px;color:#666">£</span><input style="flex:1;border:1px solid #ccc;border-radius:3px;padding:3px 6px;font-size:9px" value="123,456"><span style="font-size:9px;color:#888">tonne</span></div>
+            </div>
+            <div style="margin-bottom:10px">
+              <div style="font-size:10px;font-weight:600;color:#222;margin-bottom:2px">Steel</div>
+              <div style="font-size:8.5px;color:#2d3f6e;margin-bottom:4px">Cost model allows £3000 per Tonne</div>
+              <div style="display:flex;align-items:center;gap:4px"><span style="font-size:9px;color:#666">£</span><input style="flex:1;border:1px solid #ccc;border-radius:3px;padding:3px 6px;font-size:9px" value="123,456"><span style="font-size:9px;color:#888">tonne</span></div>
+            </div>
+            <div style="margin-bottom:10px">
+              <div style="font-size:10px;font-weight:600;color:#222;margin-bottom:2px">M&amp;E</div>
+              <div style="font-size:8.5px;color:#2d3f6e;margin-bottom:4px">Cost model allows £1,789 per m2</div>
+              <div style="display:flex;align-items:center;gap:4px"><span style="font-size:9px;color:#666">£</span><input style="flex:1;border:1px solid #ccc;border-radius:3px;padding:3px 6px;font-size:9px" value="123,456"><span style="font-size:9px;color:#888">tonne</span></div>
+            </div>
+            <div style="margin-bottom:10px">
+              <div style="font-size:10px;font-weight:600;color:#222;margin-bottom:2px">Cat A Fit Out</div>
+              <div style="font-size:8.5px;color:#2d3f6e;margin-bottom:4px">Cost model allows £690 per m2</div>
+              <div style="display:flex;align-items:center;gap:4px"><span style="font-size:9px;color:#666">£</span><input style="flex:1;border:1px solid #ccc;border-radius:3px;padding:3px 6px;font-size:9px" value="123,456"><span style="font-size:9px;color:#888">m2</span></div>
+            </div>
+          </div>
+          <!-- summary panel -->
+          <div style="flex:1;padding:12px;overflow:hidden">
+            <!-- tabs -->
+            <div style="display:flex;margin-bottom:12px;border-bottom:2px solid #2d3f6e">
+              <div style="padding:7px 18px;background:#2d3f6e;color:#fff;font-size:10px;font-weight:500;border-radius:4px 4px 0 0">Summary</div>
+              <div style="padding:7px 14px;color:#666;font-size:10px;border-radius:4px 4px 0 0">Scenario Comparison Analysis</div>
+            </div>
+            <!-- export row -->
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+              <span style="font-size:9px;color:#888">Output Data:</span>
+              <div style="display:flex;gap:6px">
+                <button style="font-size:8.5px;padding:4px 10px;border:1px solid #aaa;border-radius:4px;background:#f5f5f5;color:#444;cursor:pointer">Export Data ↑</button>
+                <button style="font-size:8.5px;padding:4px 10px;border:1px solid #aaa;border-radius:4px;background:#f5f5f5;color:#444;cursor:pointer">Save as PDF ↑</button>
+              </div>
+            </div>
+            <!-- project info card -->
+            <div style="background:#fff;border:1px solid #d0d4e8;border-radius:6px;padding:10px 12px;margin-bottom:10px">
+              <div style="font-size:10px;font-weight:600;color:#222;text-align:center;margin-bottom:8px">Project Info</div>
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 12px">
+                <div style="font-size:8px;color:#555"><b style="color:#222">Project Name:</b> Project Carbon Tool</div>
+                <div style="font-size:8px;color:#555"><b style="color:#222">Type of Foundations:</b> Raft Foundations</div>
+                <div style="font-size:8px;color:#555"><b style="color:#222">Client:</b> Confidential</div>
+                <div style="font-size:8px;color:#555"><b style="color:#222">Ground Floor:</b> In-situ Concrete</div>
+                <div style="font-size:8px;color:#555"><b style="color:#222">Building Type:</b> Commercial Office</div>
+                <div style="font-size:8px;color:#555"><b style="color:#222">Type of Frame:</b> Glulam + Steel Columns</div>
+                <div style="font-size:8px;color:#555"><b style="color:#222">GIA inc Basement:</b> 17600</div>
+                <div style="font-size:8px;color:#555"><b style="color:#222">Roof Construction:</b> Precast Concrete</div>
+              </div>
+            </div>
+            <!-- chart -->
+            <div style="background:#fff;border:1px solid #d0d4e8;border-radius:6px;padding:10px 12px">
+              <div style="font-size:8.5px;color:#444;text-align:center;margin-bottom:8px;font-weight:500">Elemental Breakdown of Embodied Carbon per m2 (KgCO2/m2)</div>
+              <div style="display:flex;align-items:flex-end;gap:4px;height:60px;padding:0 4px">
+                <div style="flex:1;background:#8bc34a;height:70%;border-radius:2px 2px 0 0"></div>
+                <div style="flex:1;background:#8bc34a;height:45%;border-radius:2px 2px 0 0"></div>
+                <div style="flex:1;background:#8bc34a;height:90%;border-radius:2px 2px 0 0"></div>
+                <div style="flex:1;background:#8bc34a;height:55%;border-radius:2px 2px 0 0"></div>
+                <div style="flex:1;background:#8bc34a;height:80%;border-radius:2px 2px 0 0"></div>
+                <div style="flex:1;background:#8bc34a;height:35%;border-radius:2px 2px 0 0"></div>
+                <div style="flex:1;background:#8bc34a;height:60%;border-radius:2px 2px 0 0"></div>
+                <div style="flex:1;background:#8bc34a;height:40%;border-radius:2px 2px 0 0"></div>
+                <div style="flex:1;background:#8bc34a;height:75%;border-radius:2px 2px 0 0"></div>
+                <div style="flex:1;background:#8bc34a;height:30%;border-radius:2px 2px 0 0"></div>
+              </div>
+              <div style="display:flex;justify-content:space-around;margin-top:3px">
+                <span style="font-size:7px;color:#aaa">Substructure</span>
+                <span style="font-size:7px;color:#aaa">Frame</span>
+                <span style="font-size:7px;color:#aaa">Facade</span>
+                <span style="font-size:7px;color:#aaa">M&amp;E</span>
+                <span style="font-size:7px;color:#aaa">Fitout</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="drb">
-          <div class="drl">
-            <div class="drl-h">Applications (14)</div>
-            <div class="drl-i on"><div class="drl-id">BK-2026-04821</div><div class="drl-m">Legal Review · Assigned</div></div>
-            <div class="drl-i"><div class="drl-id">MN-2026-03917</div><div class="drl-m">Legal Review · Pending</div></div>
-            <div class="drl-i"><div class="drl-id">QN-2026-04102</div><div class="drl-m">Technical · In Progress</div></div>
-            <div class="drl-i"><div class="drl-id">BX-2026-03588</div><div class="drl-m">Submission · Complete</div></div>
-            <div class="drl-i"><div class="drl-id">SI-2026-02744</div><div class="drl-m">Final Approval · Pending</div></div>
-          </div>
-          <div class="drm">
-            <div class="drm-h"><span>BK-2026-04821 · Comments (3)</span><span style="font-size:8px;color:#bbb">Mixed-use residential, Brooklyn</span></div>
-            <div class="drc res">
-              <div class="drc-h"><span class="drc-a">T. Morales — Technical</span><span class="drc-d">Mar 12</span></div>
-              <div class="drc-b">Structural calculations on pp. 14–17 require PE stamp. Missing from submission package.</div>
-              <span class="drc-t res">Resolved</span>
-            </div>
-            <div class="drc open">
-              <div class="drc-h"><span class="drc-a">J. Hoffman — Legal</span><span class="drc-d">Apr 3</span></div>
-              <div class="drc-b">Zoning variance approval letter not attached. Required before legal sign-off per §28-112.2.</div>
-              <span class="drc-t open">Open · Action Required</span>
-            </div>
-            <div class="drc">
-              <div class="drc-h"><span class="drc-a">System</span><span class="drc-d">Apr 3</span></div>
-              <div class="drc-b">Stage advanced to Legal Review. Assigned to J. Hoffman.</div>
-            </div>
-            <div class="dra">
-              <button class="dra-btn dra-ap">Approve Stage</button>
-              <button class="dra-btn dra-rj">Request Revision</button>
-              <button class="dra-btn dra-nt">Add Comment</button>
-            </div>
-          </div>
-          <div class="drsd">
-            <div style="margin-bottom:12px">
-              <div class="drsd-l">Application</div>
-              <div class="drsd-r"><span class="drsd-k">Filed</span><span class="drsd-v">Feb 28</span></div>
-              <div class="drsd-r"><span class="drsd-k">Type</span><span class="drsd-v">New Building</span></div>
-              <div class="drsd-r"><span class="drsd-k">Borough</span><span class="drsd-v">Brooklyn</span></div>
-            </div>
-            <div class="drsd-l">Review Progress</div>
-            <div class="drsd-bl">Technical (100%)</div>
-            <div class="drsd-bt"><div class="drsd-bf" style="width:100%;background:#1b6b5a"></div></div>
-            <div class="drsd-bl">Legal (40%)</div>
-            <div class="drsd-bt"><div class="drsd-bf" style="width:40%;background:#1e4f8a"></div></div>
-            <div class="drsd-bl">Final (0%)</div>
-            <div class="drsd-bt"><div class="drsd-bf" style="width:0%"></div></div>
-          </div>
+        <!-- footer -->
+        <div style="background:#2d3f6e;padding:5px 16px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0">
+          
+          
         </div>
       </div>
     </div>
   </div>
+
+  <div style="text-align:center;padding:3rem 2.5rem;">
+    <p id="ps-line" style="font-size:0.8rem;color:var(--text3);font-style:italic;opacity:0.4;transition:opacity 0.6s ease,color 0.6s ease,text-shadow 0.6s ease">PS: These are definitely not the real UIs. Or are they?</p>
+  </div>
+  <script>
+    const ps = document.getElementById('ps-line');
+    let timer;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        clearTimeout(timer);
+        ps.style.opacity = '1';
+        ps.style.color = 'var(--accent)';
+        ps.style.textShadow = '0 0 18px rgba(232,144,74,0.4)';
+        timer = setTimeout(() => {
+          ps.style.opacity = '0.4';
+          ps.style.color = 'var(--text3)';
+          ps.style.textShadow = 'none';
+        }, 2000);
+      }
+    }, { threshold: 0.8 });
+    obs.observe(ps);
+  </script>
+
 </section>
 
 <section id="about">
@@ -545,7 +705,7 @@ footer{border-top:1px solid var(--border);padding:1.75rem 2.5rem;display:flex;al
     <div>
       <div class="sec-eyebrow"><span class="sel">✦</span><span class="set">About</span></div>
       <h2 class="about-h2">Engineering discipline.<br>Design instinct.</h2>
-      <p class="about-p">I'm a Software Developer III at AECOM Technical Services. Most of my work is at the intersection of UX design, 3D BIM visualization, and cloud engineering. I tend to own the whole thing: design, frontend, backend, and deployment. I like working on problems where the stakes are real and the data is messy.</p>
+      <p class="about-p">Software Developer III at AECOM. I work across the stack to get products out the door.</p>
       <div class="about-ms">
         <div class="am"><div class="am-n">7+</div><div class="am-l">Years at AECOM</div></div>
         <div class="am"><div class="am-n">10+</div><div class="am-l">Platforms shipped</div></div>
@@ -595,9 +755,17 @@ footer{border-top:1px solid var(--border);padding:1.75rem 2.5rem;display:flex;al
   </div>
 </section>
 
+<section id="resume" style="padding:4rem 2.5rem;text-align:center;border-top:1px solid var(--border)">
+  <div class="sec-eyebrow" style="justify-content:center;margin-bottom:1.5rem"><span class="sel">✦</span><span class="set">Resume</span><span class="sel">✦</span></div>
+  <h2 style="font-family:'Instrument Serif',serif;font-size:clamp(1.6rem,3vw,2.2rem);color:var(--text);margin-bottom:0.75rem">Want the full picture?</h2>
+  <p style="font-size:0.9rem;color:var(--text2);margin-bottom:2rem;max-width:460px;margin-left:auto;margin-right:auto;line-height:1.7">7+ years of project history, full tech stack, and work experience - all in one place.</p>
+  <a href="Drashti_Solanki_Resume_2026_.pdf" download style="display:inline-flex;align-items:center;gap:10px;background:var(--bg3);border:1px solid var(--border2);color:var(--text);padding:14px 28px;border-radius:8px;font-size:0.875rem;font-weight:500;text-decoration:none;transition:all 0.2s" onmouseover="this.style.borderColor='rgba(255,255,255,0.3)'" onmouseout="this.style.borderColor='rgba(255,255,255,0.12)'">
+    ↓ &nbsp;Download Resume
+  </a>
+</section>
 <footer>
   <span>© 2026 Drashti Solanki</span>
-  <span>Phoenix, AZ &nbsp;&nbsp;Full Stack &nbsp;&nbsp;UX/UI &nbsp;&nbsp;3D Visualization</span>
+  <span>Phoenix, AZ &nbsp;&nbsp;Full Stack &nbsp;&nbsp;UX/UI &nbsp;&nbsp;Data Visualization</span>
 </footer>
 <script>
 (function() {
