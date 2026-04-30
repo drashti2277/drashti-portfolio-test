@@ -36,7 +36,9 @@ nav{
 .eyebrow-line{display:none}
 .eyebrow-text{font-size:1.1rem;letter-spacing:0.02em;text-transform:none;color:var(--text2);font-weight:400}
 .hero-h1{font-family:'Instrument Serif',serif;font-size:clamp(3rem,7vw,5.5rem);line-height:1.04;letter-spacing:-0.02em;color:var(--text);margin-bottom:1.75rem;opacity:0;animation:up 0.7s 0.2s ease forwards}
-.hero-h1 em{font-style:italic;color:var(--text2)}
+.hero-h1 em{font-style:italic;color:var(--text2);opacity:0.3;transition:opacity 0.4s ease}
+.hero-h1:hover em{opacity:1}
+.hero-h1{cursor:default}
 .hero-sub{font-size:1rem;color:var(--text2);max-width:520px;line-height:1.75;margin-bottom:3rem;opacity:0;animation:up 0.7s 0.3s ease forwards}
 .hero-row{display:flex;flex-wrap:wrap;align-items:center;gap:1.25rem;opacity:0;animation:up 0.7s 0.4s ease forwards}
 .cta-primary{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;padding:12px 24px;border-radius:8px;font-size:0.875rem;font-weight:500;text-decoration:none;transition:background 0.2s}
@@ -53,7 +55,7 @@ nav{
 
 #work{padding:7rem 2.5rem;max-width:1100px;margin:0 auto}
 .sec-eyebrow{display:flex;align-items:center;gap:10px;margin-bottom:1rem}
-.sel{width:24px;height:1px;background:var(--text3)}
+.sel{color:var(--text3);font-size:0.75rem}
 .set{font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3)}
 .sec-h2{font-family:'Instrument Serif',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);line-height:1.15;color:var(--text);margin-bottom:4rem;max-width:500px}
 
@@ -238,7 +240,7 @@ footer{border-top:1px solid var(--border);padding:1.75rem 2.5rem;display:flex;al
 
 <section class="hero">
   <div class="hero-eyebrow"><span class="eyebrow-line"></span><span class="eyebrow-text">Software Developer</span></div>
-  <h1 class="hero-h1">Building enterprise<br>platforms that <em>actually<br>make sense</em> to use.</h1>
+  <h1 class="hero-h1">Building enterprise<br>platforms <em>complex enough<br>to need me.</em></h1>
   <p class="hero-sub">I've spent 7+ years designing and engineering full-stack applications for airports, transit agencies, and city governments. The problems are complex, the users are busy, and the UX has to hold up.</p>
   <div class="hero-row">
     <a href="#work" class="cta-primary">View selected work →</a>
@@ -252,7 +254,7 @@ footer{border-top:1px solid var(--border);padding:1.75rem 2.5rem;display:flex;al
 </section>
 
 <section id="work">
-  <div class="sec-eyebrow"><span class="sel"></span><span class="set">Selected Work</span></div>
+  <div class="sec-eyebrow"><span class="sel">✦</span><span class="set">Selected Work</span></div>
   <h2 class="sec-h2">Work I&#39;ve shipped across infrastructure and government.</h2>
 
   <!-- PROJECT 1: DFW -->
@@ -541,7 +543,7 @@ footer{border-top:1px solid var(--border);padding:1.75rem 2.5rem;display:flex;al
 <section id="about">
   <div class="about-in">
     <div>
-      <div class="sec-eyebrow"><span class="sel"></span><span class="set">About</span></div>
+      <div class="sec-eyebrow"><span class="sel">✦</span><span class="set">About</span></div>
       <h2 class="about-h2">Engineering discipline.<br>Design instinct.</h2>
       <p class="about-p">I'm a Software Developer III at AECOM Technical Services. Most of my work is at the intersection of UX design, 3D BIM visualization, and cloud engineering. I tend to own the whole thing: design, frontend, backend, and deployment. I like working on problems where the stakes are real and the data is messy.</p>
       <div class="about-ms">
@@ -584,12 +586,12 @@ footer{border-top:1px solid var(--border);padding:1.75rem 2.5rem;display:flex;al
 </section>
 
 <section id="contact">
-  <div class="sec-eyebrow" style="justify-content:center;margin-bottom:1.5rem"><span class="sel"></span><span class="set">Contact</span><span class="sel"></span></div>
+  <div class="sec-eyebrow" style="justify-content:center;margin-bottom:1.5rem"><span class="sel">✦</span><span class="set">Contact</span><span class="sel">✦</span></div>
   <h2 class="con-h2">Let's work together.</h2>
   <p class="con-sub">Open to UX/UI consulting, full-stack contract work, and platform architecture conversations. Based in Phoenix, AZ and available for remote work.</p>
   <div class="con-row">
     <a href="mailto:drashtisolanki.jobs@gmail.com" class="con-p">drashtisolanki.jobs@gmail.com</a>
-    <a href="https://www.linkedin.com/in/drashti-solanki/" class="con-s">LinkedIn →</a>
+    <a href="https://linkedin.com/in/drashtisolanki" class="con-s">LinkedIn →</a>
   </div>
 </section>
 
@@ -597,5 +599,63 @@ footer{border-top:1px solid var(--border);padding:1.75rem 2.5rem;display:flex;al
   <span>© 2026 Drashti Solanki</span>
   <span>Phoenix, AZ &nbsp;&nbsp;Full Stack &nbsp;&nbsp;UX/UI &nbsp;&nbsp;3D Visualization</span>
 </footer>
+<script>
+(function() {
+  const particles = [];
+  const canvas = document.createElement('canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.style.cssText = 'position:fixed;top:0;left:0;pointer-events:none;z-index:99999;opacity:0.55;';
+  document.body.appendChild(canvas);
+
+  function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const cursor = { x: -100, y: -100 };
+  const lastPos = { x: -100, y: -100 };
+
+  document.addEventListener('mousemove', function(e) {
+    cursor.x = e.clientX;
+    cursor.y = e.clientY;
+    const dist = Math.hypot(cursor.x - lastPos.x, cursor.y - lastPos.y);
+    if (dist > 3) {
+      for (let i = 0; i < 2; i++) {
+        particles.push({
+          x: cursor.x + (Math.random() - 0.5) * 10,
+          y: cursor.y + (Math.random() - 0.5) * 10,
+          char: Math.random() > 0.5 ? '1' : '0',
+          life: 1,
+          decay: Math.random() * 0.018 + 0.012,
+          size: Math.floor(Math.random() * 6 + 9),
+          vx: (Math.random() - 0.5) * 0.6,
+          vy: Math.random() * 0.8 + 0.4,
+          green: Math.floor(Math.random() * 80 + 160),
+        });
+      }
+      lastPos.x = cursor.x;
+      lastPos.y = cursor.y;
+    }
+  });
+
+  function loop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = particles.length - 1; i >= 0; i--) {
+      const p = particles[i];
+      p.life -= p.decay;
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.015;
+      if (p.life <= 0) { particles.splice(i, 1); continue; }
+      ctx.globalAlpha = p.life * 0.7;
+      ctx.fillStyle = 'rgb(0, ' + p.green + ', 60)';
+      ctx.font = p.size + 'px monospace';
+      ctx.fillText(p.char, p.x, p.y);
+    }
+    ctx.globalAlpha = 1;
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+</script>
 </body>
 </html>
